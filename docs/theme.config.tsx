@@ -149,7 +149,10 @@ const config: DocsThemeConfig = {
   },
   toc: {
     backToTop: true
-  }
+  },
+  i18n: [
+    { locale: 'zh-CN', text: '中文' },
+  ]
 }
 
 export default config

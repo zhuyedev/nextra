@@ -16,6 +16,10 @@ export default withNextra({
     // ESLint behaves weirdly in this monorepo.
     ignoreDuringBuilds: true
   },
+  i18n: {
+    locales: ['zh-CN'],
+    defaultLocale: 'zh-CN'
+  },
   redirects: () => [
     {
       source: '/docs/guide/:slug(typescript|latex|tailwind-css|mermaid)',

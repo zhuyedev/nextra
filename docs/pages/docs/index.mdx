@@ -1,37 +1,32 @@
 # Nextra
 
-**Nextra** is a framework on top of Next.js, that lets you build content focused
-websites. It has all the great features from Next.js, plus extra power to create
-Markdown-based content with ease.
+**Nextra** 是一个基于 Next.js 构建的框架,让你能够轻松构建以内容为中心的网站。它具有 Next.js 的所有出色功能,并且还额外提供了强大的功能,可以轻松创建基于 Markdown 的内容。
 
 ## Quick Start
 
 import { Cards } from 'nextra/components'
 
-To start using Nextra, you need to select a theme first:
+要开始使用 Nextra,你需要先选择一个主题：
 
 <Cards num={2}>
   <Cards.Card
     image
     arrow
-    title="Documentation theme"
+    title="文档主题"
     href="/docs/docs-theme/start"
   >
-    <>![Documentation theme](/assets/docs-theme.png)</>
+    <>![文档主题](/assets/docs-theme.png)</>
   </Cards.Card>
-  <Cards.Card image arrow title="Blog theme" href="/docs/blog-theme/start">
-    <>![Blog theme](/assets/blog-theme.png)</>
+  <Cards.Card image arrow title="博客主题" href="/docs/blog-theme/start">
+    <>![博客主题](/assets/blog-theme.png)</>
   </Cards.Card>
 </Cards>
 
-If you want to use Nextra without using these built-in themes, you can follow
-the [Custom Theme](/docs/custom-theme) docs.
+如果你想在不使用这些内置主题的情况下使用 Nextra，你可以查看[自定义主题](/docs/custom-theme)文档。
 
 ## Nextra FAQ
 
-The Nextra FAQ is a collection of useful questions and answers about the
-project. If you have a question that isn't answered here, please
-[open a discussion](https://github.com/shuding/nextra/discussions).
+Nextra 常见问题是一个关于该项目的有用问题和答案的集合。如果你有一个在这里没有得到解答的问题,请[发布一个讨论](https://github.com/shuding/nextra/discussions)。
 
 export function FAQBox({ title, children }) {
   return (
@@ -47,20 +42,16 @@ export function FAQBox({ title, children }) {
   )
 }
 
-<FAQBox title="Can I use Nextra with Next.js app router?">
-  No, Nextra only works with the `/pages` directory at the moment. Support for
-  the app router has not been implemented yet. But you can use `/app` and
-  `/pages` at the same time - just put your docs inside `/pages` and your other
-  routes in `/app`
+<FAQBox title="我可以将 Nextra 与 Next.js 应用路由器一起使用吗?">
+  可以,Nextra 目前只适用于 `/pages` 目录。对应用路由器的支持尚未实现。但是你可以同时使用 `/app` 和 `/pages` - 只需将你的文档放在 `/pages` 中,将其他路由放在 `/app` 中即可。
 </FAQBox>
 
-<FAQBox title="Can I use X with Nextra?">
-  The answer is “yes” for most things. Since Nextra is just a Next.js plugin, almost all the things
-  that can be done with React can be done with Nextra. Here are some examples and guides:
+<FAQBox title="我可以在 Nextra 中使用 X 吗?">
+  对于大多数情况,答案都是"可以"。由于 Nextra 只是一个 Next.js 插件,几乎所有可以使用 React 完成的事情都可以使用 Nextra 完成。以下是一些示例和指南:
 
-- [Use Tailwind CSS](/docs/guide/tailwind-css)
-- [Use custom CSS and Sass](/docs/guide/custom-css)
-- [Use custom fonts](https://nextjs.org/docs/basic-features/font-optimization)
+- [使用 Tailwind CSS](/docs/guide/tailwind-css)
+- [使用 custom CSS and Sass](/docs/guide/custom-css)
+- [使用 custom fonts](https://nextjs.org/docs/basic-features/font-optimization)
 
 </FAQBox>
 
