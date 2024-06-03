@@ -1,11 +1,9 @@
 import { Screenshot } from 'components/screenshot'
 import { Callout } from 'nextra/components'
 
-# Theme Configuration
+# 主题配置
 
-The theme is configured with the
-[theme.config.jsx](/docs/docs-theme/start#create-docs-theme-config) file. It
-should export an object that contains your configurations, for example:
+主题通过 [theme.config.jsx](/docs/docs-theme/start#create-docs-theme-config) 文件进行配置。该文件应导出一个包含您的配置的对象，例如：
 
 ```jsx filename="theme.config.jsx"
 export default {
@@ -16,28 +14,26 @@ export default {
 }
 ```
 
-Detailed information for each option is listed below.
+每个选项的详细信息如下所示。
 
 import { OptionTable } from 'components/table'
 
-## Global
+## 全局配置
 
-### Docs Repository
+### 文档仓库
 
-Set the repository URL of the documentation. It’s used to generate the
-“[Edit this page](#edit-link)” link and the “[Feedback](#feedback-link)” link.
+设置文档的仓库 URL。它用于生成“[编辑此页面](#edit-link)”链接和“[反馈](#feedback-link)”链接。
+
 
 <OptionTable
   options={[
-    ['docsRepositoryBase', 'string', 'URL of the documentation repository.']
+    ['docsRepositoryBase', 'string', '文档仓库的 URL。']
   ]}
 />
 
-#### Specify a Path
+#### 指定路径
 
-If the documentation is inside a monorepo, a subfolder, or a different branch of
-the repository, you can simply set the `docsRepositoryBase` to the root path of
-the `pages/` folder of your docs. For example:
+如果文档位于一个 monorepo、子文件夹或仓库的不同分支中，您可以将 `docsRepositoryBase` 设置为文档 `pages/` 文件夹的根路径。例如：
 
 ```js
 export default {
@@ -45,32 +41,29 @@ export default {
 }
 ```
 
-Then Nextra will automatically generate the correct file path for all pages.
+然后 Nextra 将自动为所有页面生成正确的文件路径。
 
-### SEO Options
+### SEO 选项
 
-You can configure SEO related settings via the `useNextSeoProps` option. The
-`useNextSeoProps` function returns the props that will be passed to the
-[Next SEO](https://github.com/garmeeh/next-seo#add-seo-to-page) component.
+您可以通过 `useNextSeoProps` 选项配置与 SEO 相关的设置。`useNextSeoProps` 函数返回将传递给[Next SEO](https://github.com/garmeeh/next-seo#add-seo-to-page)组件的属性。
 
-It is also a hook, so you can use APIs like `useRouter` inside to return values
-conditionally.
+它也是一个钩子，因此您可以在其中使用 `useRouter` 等 API 来有条件地返回值。
 
 <OptionTable
   options={[
     [
       'useNextSeoProps',
       '() => NextSeoProps',
-      'A React hook function that returns options for Next SEO.'
+      '一个 React 钩子函数，返回 Next SEO 的选项。'
     ]
   ]}
 />
 
-For example, we can have all pages rendering the same suffix for `<title>`:
+例如，我们可以让所有页面渲染相同的 `<title>` 后缀：
 
 import titleSuffixImage from '../../../public/assets/docs/title-suffix.png'
 
-<Screenshot src={titleSuffixImage} alt="Title suffix" />
+<Screenshot src={titleSuffixImage} alt="标题后缀" />
 
 ```js
 export default {
@@ -82,10 +75,9 @@ export default {
 }
 ```
 
-The `%s` is a [placeholder](https://github.com/garmeeh/next-seo#title-template)
-that will be replaced by the page title.
+`%s` 是一个占位符，将被页面标题替换。
 
-You can also return it conditionally to avoid adding the suffix to the homepage:
+您还可以有条件地返回它，以避免在主页上添加后缀：
 
 ```js
 import { useRouter } from 'next/router'
@@ -102,10 +94,9 @@ export default {
 }
 ```
 
-### Head Tags
+### Head 标签
 
-Configure the `<head>` tags of the website. You can add meta tags, title,
-favicon, etc.
+配置网站的 `<head>` 标签。您可以添加 meta 标签、标题、favicon 等。
 
 <OptionTable
   options={[
@@ -113,16 +104,15 @@ favicon, etc.
       'head',
       'React.ReactNode | React.FC',
       <>
-        Component that renders the <code>{'<head>'}</code> content.
+        渲染 <code>{'<head>'}</code> 内容的组件。
       </>
     ]
   ]}
 />
 
-#### Static Head Tags
+#### 静态 head 标签
 
-If you have only static head tags, it’s easy to directly put them in `head`. For
-example:
+如果您只有静态 head 标签，可以直接将它们放入 `head`。例如：
 
 ```jsx
 export default {
@@ -136,10 +126,9 @@ export default {
 }
 ```
 
-#### Dynamic Tags Based on Page
+#### 基于页面的动态标签
 
-You can also use a _function component_ as `head` to dynamically generate the
-head tags based on the current page’s front matter. For example:
+您还可以使用 _函数组件_ 作为 `head`，根据当前页面的 front matter 动态生成头标签。例如：
 
 ```jsx
 import { useRouter } from 'next/router'
@@ -167,56 +156,54 @@ export default {
 }
 ```
 
-You can refer to the [`useConfig`](/docs/docs-theme/api/use-config) API section
-for more information about the `useConfig` hook and the `frontMatter` object.
+您可以参考 [`useConfig`](/docs/docs-theme/api/use-config) API 部分以获取有关 `useConfig` 钩子和 `frontMatter` 对象的更多信息。
 
-### Dark Mode and Themes
+### 深色模式和主题
 
-Customize the theme behavior of the website.
+自定义网站的主题。
 
 <OptionTable
   options={[
-    ['darkMode', 'boolean', 'Show or hide the dark mode toggle button.'],
+    ['darkMode', 'boolean', '显示或隐藏深色模式切换按钮。'],
     [
       'nextThemes',
       'object',
       <>
-        Configuration for the{' '}
+        配置{' '}
         <a
           href="https://github.com/pacocoursey/next-themes#themeprovider"
           target="_blank"
         >
           next-themes
         </a>{' '}
-        package.
+        包。
       </>
     ]
   ]}
 />
 
-### Theme Color
+### 主题颜色
 
-You can adjust the theme color of the website by setting primary hue and
-saturation values for light and dark themes.
+您可以通过设置浅色和深色主题的主色调和饱和度值来调整网站的主题颜色。
 
 <OptionTable
   options={[
     [
       'primaryHue',
       'number | { dark: number; light: number }',
-      'The hue of the primary theme color.'
+      '主主题颜色的色调。'
     ],
     [
       'primarySaturation',
       'number | { dark: number; light: number }',
-      'The saturation of the primary theme color.'
+      '主主题颜色的饱和度。'
     ]
   ]}
 />
 
 Try it out for this website:
 
-| Hue   | Saturation   |
+| 色调   |    饱和度     |
 | ----- | ------------ |
 | {hue} | {saturation} |
 
@@ -260,12 +247,11 @@ export const saturation = (
   </div>
 )
 
-## Navbar
+## 导航栏
 
 ### Logo
 
-The logo of the website rendered on the navbar. It can be a React node or a
-function component.
+渲染在导航栏上的网站 Logo。它可以是一个 React node 或一个函数组件。
 
 <OptionTable
   options={[
@@ -276,11 +262,10 @@ function component.
 
 import logoImage from '../../../public/assets/docs/logo.png'
 
-<Screenshot src={logoImage} alt="Customized Logo" />
+<Screenshot src={logoImage} alt="自定义 Logo" />
 
 <div className="mt-8 text-center text-sm">
-  [Live example on StackBlitz
-  ↗](https://stackblitz.com/edit/nextra-2-docs-yrlccm?file=theme.config.jsx)
+  [在 StackBlitz 上查看在线示例 ↗](https://stackblitz.com/edit/nextra-2-docs-yrlccm?file=theme.config.jsx)
 </div>
 
 ```jsx
@@ -294,17 +279,16 @@ export default {
         />
       </svg>
       <span style={{ marginLeft: '.4em', fontWeight: 800 }}>
-        My Cool Project
+        我的酷酷的项目
       </span>
     </>
   )
 }
 ```
 
-### Project Link
+### 项目链接
 
-Show a button that links to your project’s homepage on the navbar. By default,
-it links to Nextra’s GitHub repository.
+在导航栏上显示一个链接到您项目主页的按钮。默认情况下，它链接到 Nextra 的 GitHub 仓库。
 
 <OptionTable
   options={[
@@ -312,13 +296,12 @@ it links to Nextra’s GitHub repository.
     [
       'project.icon',
       'React.ReactNode | React.FC',
-      'Icon or element of the project link.'
+      '项目链接的图标或元素。'
     ]
   ]}
 />
 
-You can configure `project.link` and `project.icon` to customize the project
-link, for example make it link to your GitLab repository:
+您可以配置 `project.link` 和 `project.icon` 来自定义项目链接，例如将其链接到您的 GitLab 仓库：
 
 import projectLinkImage from '../../../public/assets/docs/project-link.png'
 
@@ -340,27 +323,24 @@ export default {
 }
 ```
 
-If `icon` is missing, it will be a
-[GitHub icon](https://primer.style/octicons/mark-github-16) by default.
+如果不设置 `icon` 默认情况下会展示 [GitHub 的图标](https://primer.style/octicons/mark-github-16)。
 
-### Chat Link
+### 社交媒体链接
 
-Show a button that links to your project’s forum or other social media on the
-navbar.
+在导航栏上显示一个链接到您项目论坛或其他社交媒体的按钮。
 
 <OptionTable
   options={[
-    ['chat.link', 'string', 'URL of the chat link.'],
+    ['chat.link', 'string', '社交媒体链接的 URL。'],
     [
       'chat.icon',
       'React.ReactNode | React.FC',
-      'Icon or element of the chat link.'
+      '社交媒体链接的图标或元素。'
     ]
   ]}
 />
 
-You can configure `chat.link` and `chat.icon` to customize the chat link, for
-example make it link to your Twitter account:
+您可以配置 `chat.link` 和 `chat.icon` 来自定义社交媒体链接，例如将其链接到您的 Twitter 账号：
 
 ```jsx
 export default {
@@ -378,14 +358,13 @@ export default {
 }
 ```
 
-If `icon` is missing, it will be a Discord icon by default.
+如果不设置 `icon`，默认情况下会展示 Discord 的图标。
 
-### Menu and Custom Links
+### 菜单和自定义链接
 
-Check out [Page Configuration](/docs/docs-theme/page-configuration#navbar-items)
-to learn how to add custom menus or links to the navbar.
+查看[页面配置](/docs/docs-theme/page-configuration#navbar-items)以了解如何向导航栏添加自定义菜单或链接。
 
-### Search
+### 搜索
 
 <OptionTable
   options={[
@@ -397,40 +376,34 @@ to learn how to add custom menus or links to the navbar.
 }>`,
       ''
     ],
-    ['search.emptyResult', 'React.ReactNode | React.FC', 'Not found text'],
-    ['search.loading', 'React.ReactNode | React.FC', 'Loading text'],
-    ['search.error', 'string | (() => string)', 'Error text'],
-    ['search.placeholder', 'string | (() => string)', 'Placeholder text']
+    ['search.emptyResult', 'React.ReactNode | React.FC', '未找到结果时的文本'],
+    ['search.loading', 'React.ReactNode | React.FC', '加载时的文本'],
+    ['search.error', 'string | (() => string)', '错误信息文本'],
+    ['search.placeholder', 'string | (() => string)', '占位符文本']
   ]}
 />
 
-### Banner
+### 横幅
 
-Show a banner on the top of the website. It can be used to show a warning or a
-notice.
+在网站顶部显示一个横幅。它可以用于显示警告或通知。
 
 <OptionTable
   options={[
-    ['banner.dismissible', 'boolean', 'Closable banner or not.'],
+    ['banner.dismissible', 'boolean', '可关闭的横幅。'],
     [
       'banner.key',
       'string',
-      'Storage key to keep the banner state (dismissed or not).'
+      '用于存储横幅状态（是否关闭）的存储键。'
     ],
-    ['banner.text', 'React.ReactNode | React.FC', 'Text of the banner.']
+    ['banner.text', 'React.ReactNode | React.FC', '横幅的内容。']
   ]}
 />
 
 #### Banner key
 
-A banner can be dismissed. By default `banner.key` will be `"nextra-banner"` and
-it’s used by
-[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
-to keep the banner state (dismissed or not) on the client.
+横幅可以关闭。默认情况下，banner.key 将是 "nextra-banner"，并且使用 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 在客户端上存储横幅状态（是否关闭）。
 
-If you have updated your banner text, you should change the key to make sure the
-banner is shown again. The best practice is to always use a descriptive key for
-the current text, for example:
+如果您更新了横幅文本，您应该更改键以确保横幅再次显示。最佳实践是始终使用描述性键来表示当前文本，例如：
 
 import bannerImage from '../../../public/assets/docs/banner.png'
 
@@ -442,45 +415,45 @@ export default {
     key: '2.0-release',
     text: (
       <a href="https://nextra.site" target="_blank">
-        🎉 Nextra 2.0 is released. Read more →
+        🎉 Nextra 2.0 已发布。了解更多 →
       </a>
     )
   }
 }
 ```
 
-### Customize the Navbar
+### 自定义导航栏
 
-Customize the entire navbar component.
+自定义整个导航栏组件。
 
 <OptionTable
   options={[
     [
       'navbar.component',
       'React.ReactNode | React.FC<NavBarProps>',
-      'Navbar component.'
+      '导航栏组件。'
     ],
     [
       'navbar.extraContent',
       'React.ReactNode | React.FC',
-      'Display extra content after last icon.'
+      '在最后一个图标之后显示额外内容。'
     ]
   ]}
 />
 
-## Sidebar
+## 侧边栏
 
 <OptionTable
   options={[
     [
       'sidebar.defaultMenuCollapseLevel',
       'number',
-      'Specifies the folder level at which the menu on the left is collapsed by default. Defaults to 2.'
+      '指定左侧菜单默认折叠的文件夹层级。默认值为 2。'
     ],
     [
       'sidebar.autoCollapse',
       'boolean',
-      'If true, automatically collapse inactive folders above defaultMenuCollapseLevel.'
+      '如果为 true，则自动折叠高于 defaultMenuCollapseLevel 的非活动文件夹。'
     ],
     [
       'sidebar.titleComponent',
@@ -489,42 +462,33 @@ Customize the entire navbar component.
   title: string;
   route: string;
 }>`,
-      'Custom renderer for sidebar titles.'
+      '自定义侧边栏标题的渲染器。'
     ],
     [
       'sidebar.toggleButton',
       'boolean',
-      'Hide/show sidebar toggle button. Defaults to `false`.'
+      '隐藏/显示侧边栏切换按钮。默认值为 `false`。'
     ]
   ]}
 />
 
-### Menu Collapse Level
+### 菜单折叠层级
 
-By default, the sidebar menu is collapsed at level `2`. You can change it by
-setting `sidebar.defaultMenuCollapseLevel` to a different number. For example,
-when set to `1`, every folder will be collapsed by default and when set to
-`Infinity`, all nested folders will be expanded by default.
+默认情况下，侧边栏菜单在层级 `2` 时折叠。您可以通过设置 `sidebar.defaultMenuCollapseLevel` 为不同的数字来更改它。例如，当设置为 `1` 时，每个文件夹默认会折叠，当设置为 `Infinity` 时，所有嵌套文件夹默认会展开。
 
-If `sidebar.autoCollapse` is set to `true`, then all folders that do not contain
-an active/focused route will automatically collapse up to the level set by
-`sidebar.defaultMenuCollapseLevel`. e.g. if `defaultMenuCollapseLevel` is `2`,
-then top-level folders will not auto-collapse.
+如果 `sidebar.autoCollapse` 设置为 `true`，那么所有不包含活动/聚焦路由的文件夹将自动折叠到 `sidebar.defaultMenuCollapseLevel` 设置的层级。例如，如果 `defaultMenuCollapseLevel` 是 `2`，那么顶级文件夹将不会自动折叠。
 
-### Customize Sidebar Content
+### 自定义侧边栏内容
 
-Together with the [Separators](/docs/docs-theme/page-configuration#separators)
-item, you can customize how the sidebar content is rendered by using the
-`sidebar.titleComponent` option:
+结合 [分隔符](/docs/docs-theme/page-configuration#separators) 项，您可以使用 `sidebar.titleComponent` 选项来自定义侧边栏内容的渲染方式：
 
 import { Tabs } from 'nextra/components'
 import sidebarTitleComponentImage from '../../../public/assets/docs/sidebar-customized.png'
 
-<Screenshot src={sidebarTitleComponentImage} alt="Customized Sidebar" />
+<Screenshot src={sidebarTitleComponentImage} alt="自定义侧边栏" />
 
 <div className="mt-8 text-center text-sm">
-  [Live example on StackBlitz
-  ↗](https://stackblitz.com/edit/nextra-2-docs-8xbfk3?file=pages%2F_meta.json,theme.config.jsx)
+  [在 StackBlitz 上查看在线示例 ↗]](https://stackblitz.com/edit/nextra-2-docs-8xbfk3?file=pages%2F_meta.json,theme.config.jsx)
 </div>
 
 <Tabs items={['theme.config.jsx', 'pages/_meta.json']}>
@@ -550,106 +514,100 @@ import sidebarTitleComponentImage from '../../../public/assets/docs/sidebar-cust
   <Tabs.Tab>
     ```json
     {
-      "index": "Intro",
+      "index": "简介",
       "--": {
         "type": "separator",
-        "title": "A Separator"
+        "title": "一个分隔符"
       },
-      "frameworks": "JS Frameworks & Libs",
-      "about": "About"
+      "frameworks": "JS 框架和库",
+      "about": "关于"
     }
     ```
   </Tabs.Tab>
 </Tabs>
 
-## Content
+## 内容
 
-### MDX Components
+### MDX 组件
 
-Provide custom [MDX components](https://mdxjs.com/table-of-components/) to
-render the content. For example, you can use a custom `pre` component to render
-code blocks.
+提供自定义的 [MDX 组件](https://mdxjs.com/table-of-components/) 以渲染内容。例如，您可以使用自定义的 `pre` 组件来渲染代码块。
 
 <OptionTable
   options={[
-    ['components', 'Record<string, React.FC>', 'Custom MDX components.']
+    ['components', 'Record<string, React.FC>', '自定义 MDX 组件。']
   ]}
 />
 
-### Writing Direction
+### 书写方向
 
-The default writing direction of the website.
+网站的默认书写方向。
 
 <OptionTable
-  options={[['direction', '"ltr" | "rtl"', 'Default writing direction.']]}
+  options={[['direction', '"ltr" | "rtl"', '默认书写方向']]}
 />
 
-### Main Content
+### 主内容
 
-Render top and/or bottom content of main area of the page. It can be used to
-render a comment section, a newsletter form, or any other type of content.
+在页面的主区域渲染顶部和/或底部内容。它可以用于渲染评论区、新闻通讯表单或任何其他类型的内容。
 
 <OptionTable
   options={[
     [
       'main',
       'React.FC<{ children: React.ReactNode }>',
-      'Component of main content.'
+      '主内容组件。'
     ]
   ]}
 />
 
-## TOC Sidebar
+## 章节目录侧边栏
 
-### Table of Contents
+### 章节目录
 
-Show a table of contents on the right side of the page. It’s useful for
-navigating between headings.
+在页面右侧显示目录。它对于在标题之间导航非常有用。
 
 <OptionTable
   options={[
     [
       'toc.component',
       'React.ReactNode | React.FC<TOCProps>',
-      'Custom renderer of the TOC.'
+      '章节目录的自定义渲染器。'
     ],
     [
       'toc.extraContent',
       'React.ReactNode | React.FC',
-      'Display extra content below the TOC content.'
+      '在章节目录内容下方显示额外内容。'
     ],
-    ['toc.float', 'boolean', 'Float the TOC next to the content.'],
+    ['toc.float', 'boolean', '将章节目录浮动显示在内容旁边。'],
     [
       'toc.title',
       'React.ReactNode | React.FC',
-      'Title of the TOC sidebar. By default it’s “On This Page”.'
+      '章节目录侧边栏的标题。默认是 “On This Page”。'
     ],
     [
       'toc.headingComponent',
       'React.FC<{ id: string, children: string }>',
-      'Custom renderer of TOC headings.'
+      '章节目录标题的自定义渲染器。'
     ],
-    ['toc.backToTop', 'boolean', 'Add `Scroll to top` link.']
+    ['toc.backToTop', 'boolean', '添加“回到顶部”（Scroll To Top）链接。']
   ]}
 />
 
-#### Floating TOC
+#### 浮动章节目录
 
-`toc.float` is enabled by default. When enabled, the TOC will be displayed on
-the right side of the page and it will be sticky when scrolling. If it’s
-disabled, the TOC will be displayed directly on the page sidebar.
+`toc.float` 默认启用。启用时，目录将显示在页面右侧，滚动时会固定。如果禁用，目录将直接显示在页面侧边栏。
 
-### Edit Link
+### 编辑链接
 
-Show an “Edit this page” link on the page that points to the file URL on GitHub
-(or other places).
+在页面上显示“编辑此页面”（Edit this page）链接，指向 GitHub（或其他地方）的文件 URL。
+
 
 <OptionTable
   options={[
     [
       'editLink.text',
       'React.ReactNode | React.FC',
-      'Content of the default edit link.'
+      '默认的编辑链接的内容。'
     ],
     [
       'editLink.component',
@@ -658,64 +616,60 @@ Show an “Edit this page” link on the page that points to the file URL on Git
   className?: string
   filePath?: string
 }> | null`,
-      'Customized edit link component.'
+      '自定义编辑链接组件。'
     ]
   ]}
 />
 
 <Callout type="info">
-  To disable it, you can set `editLink.component` to `null`.
+  要禁用它，可以将 `editLink.component` 设置为 `null`。
 </Callout>
 
-### Feedback Link
+### 反馈链接
 
-The built-in feedback link provides a way for users to submit feedback about the
-documentation. By default, it’s a link that points to the issue creation form of
-the docs repository, with the current website title prefilled:
-[example](https://github.com/shuding/nextra/issues/new?title=Feedback%20for%20%E2%80%9CTheme%20Configuration%E2%80%9D&labels=feedback).
+内置的反馈链接为用户提供了一种提交文档反馈的方式。默认情况下，它是一个链接，指向文档仓库的问题创建表单，预填当前网站标题：[示例](https://github.com/shuding/nextra/issues/new?title=Feedback%20for%20%E2%80%9CTheme%20Configuration%E2%80%9D&labels=feedback)。
 
 <OptionTable
   options={[
     [
       'feedback.content',
       'React.ReactNode | React.FC',
-      'Content of the feedback button.'
+      '反馈按钮的内容。'
     ],
     [
       'feedback.labels',
       'string',
-      'Labels that can be added to the new created GitHub issue.'
+      '可以添加到新创建的 GitHub 问题中的标签。'
     ],
     [
       'feedback.useLink',
       '() => string',
-      'Custom link, by default, will open an issue in the repository set in `docsRepositoryBase`.'
+      '自定义链接，默认情况下，将在 `docsRepositoryBase` 中设置的仓库中打开一个问题。'
     ]
   ]}
 />
 
 <Callout type="info">
-  To disable it, you can set `feedback.content` to `null`.
+  要禁用它，可以将 `feedback.content` 设置为 `null`。
 </Callout>
 
-## End of Page
+## 页面底部
 
-### Navigation
+### 导航
 
-Show previous and next page links on the bottom of the content. It’s useful for
-navigating between pages.
+在内容底部显示上一页和下一页链接。它对于页面间导航非常有用。
 
 <OptionTable
   options={[
-    ['navigation', 'boolean | object', 'Enable or disable navigation link.'],
-    ['navigation.prev', 'boolean', 'Enable or disable the previous page link.'],
-    ['navigation.next', 'boolean', 'Enable or disable the next page link.']
+    ['navigation', 'boolean | object', '启用或禁用导航链接。'],
+    ['navigation.prev', 'boolean', '启用或禁用上一页链接。'],
+    ['navigation.next', 'boolean', '启用或禁用下一页链接。']
   ]}
 />
 
 import navigationImage from '../../../public/assets/docs/navigation.png'
 
-<Screenshot src={navigationImage} alt="Navigation" full />
+<Screenshot src={navigationImage} alt="导航" full />
 
 ```jsx
 export default {
@@ -726,47 +680,44 @@ export default {
 }
 ```
 
-The above is also equivalent to `navigation: true`.
+以上设置等价于 `navigation: true`。
 
-### Last Updated Date
+### 最后更新时间
 
-Show the last updated date of each page. It’s useful for showing the freshness
-of the content.
+显示每个页面的最后更新时间。它有助于显示内容的新鲜度。
 
 <OptionTable
   options={[
     [
       'gitTimestamp',
       'React.ReactNode | React.FC<{ timestamp: Date }>',
-      'Component to render the last updated info.'
+      '渲染最后更新时间信息的组件。'
     ]
   ]}
 />
 
-## Footer
+## 页脚
 
-The footer area of the website. You can either specify some content for the
-default footer, or fully customize it with a custom component.
+网站的页脚区域。您可以为默认页脚指定一些内容，或使用自定义组件完全自定义它。
 
 <OptionTable
   options={[
     [
       'footer.text',
       'React.ReactNode | React.FC',
-      'Content of the default footer component.'
+      '默认页脚组件的内容。'
     ],
     [
       'footer.component',
       'React.ReactNode | React.FC<{ menu: boolean }>',
-      'Customized footer component.'
+      '自定义页脚组件。'
     ]
   ]}
 />
 
-### Copyright Information
+### 版权信息
 
-You can add some simple content, such as copyright information to the default
-footer:
+您可以向默认页脚添加一些简单的内容，例如版权信息：
 
 ```jsx
 export default {
@@ -784,52 +735,51 @@ export default {
 }
 ```
 
-## Theme Switch
+## 主题切换
 
 <OptionTable
   options={[
     [
       'themeSwitch.component',
       'React.ReactNode | React.FC<{ lite?: boolean, className?: string }>',
-      'Component to render the theme switch.'
+      '渲染主题切换的组件。'
     ],
     [
       'themeSwitch.useOptions',
       'ThemeOptions | () => ThemeOptions',
-      'Options in the theme switch.'
+      '主题切换中的选项。'
     ]
   ]}
 />
 
-### Options
+### 选项
 
-You are able to customize the option names for localization or other purposes:
+您可以自定义选项名称以进行本地化或其他目的：
 
 ```jsx
 export default {
   themeSwitch: {
     useOptions() {
       return {
-        light: 'Light',
-        dark: 'Dark',
-        system: 'System'
+        light: '浅色',
+        dark: '深色',
+        system: '系统'
       }
     }
   }
 }
 ```
 
-## Error Pages
+## 错误页面
 
-### 404 - Not Found
+### 404 - 未找到
 
-### 500 - Internal Server Error
+### 500 - 内部服务器错误
 
-## Favicon Glyph (Experimental)
+## Favicon 符号（实验性）
 
-This isn’t supported by all browsers, but it’s a nice way to customize the
-favicon of the website simply by using an emoji or character.
+并非所有浏览器都支持该特性，但这是通过使用表情符号或字符来简单自定义网站 favicon 的一种不错的方法。
 
 <OptionTable
-  options={[['faviconGlyph', `string`, 'The glyph to use as the favicon.']]}
+  options={[['faviconGlyph', `string`, '用作 favicon 的符号。']]}
 />

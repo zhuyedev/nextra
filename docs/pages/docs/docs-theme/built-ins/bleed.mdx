@@ -1,25 +1,23 @@
 import { Bleed } from 'nextra-theme-docs'
 
-# Bleed
+# Bleed 组件
 
-## Example
+## 示例
 
-When wrapping your content with `<Bleed>`, it will be slightly wider than the
-container and will overflow on both sides.
+当使用 `<Bleed>` 包裹您的内容时，它将比容器稍微宽一些，并在两侧溢出。
 
 <Bleed>
   <div className="bg-white dark:bg-neutral-800 px-16 py-10 text-center border">
-    _There is nothing to writing. All you do is sit down at a typewriter and **bleed**._
+    _写作没有什么特别的。你只需要坐在打字机前，**然后写就是了**。_
 
-    — Ernest Hemingway
+    — 欧内斯特·海明威
 
   </div>
 </Bleed>
 
-It provides a better reading experience when you want to present some graphical
-information, which normally looks nicer in a larger size.
+当您希望展示一些图形信息时，它提供了更好的阅读体验，这些信息通常在较大尺寸下看起来更好。
 
-For example, you can put text, image, video or any component inside:
+例如，您可以将文本、图像、视频或任何组件放入其中：
 
 <Bleed>
   <iframe
@@ -30,21 +28,21 @@ For example, you can put text, image, video or any component inside:
   />
 </Bleed>
 
-You can even make it full-bleed using `<Bleed full>`:
+您甚至可以使用 `<Bleed full>` 使其完全溢出：
 
 <Bleed full>
-  <>![Landscape](https://source.unsplash.com/eaxwP9J_V6s/1600x398)</>
+  <>![风景](https://source.unsplash.com/eaxwP9J_V6s/1600x398)</>
 </Bleed>
 
-## Usage
+## 用法
 
 ```mdx
 import { Bleed } from 'nextra-theme-docs'
 
-<Bleed>Hey, I can use **Markdown** syntax here.</Bleed>
+<Bleed>嘿，我可以在这里使用 **Markdown** 语法。</Bleed>
 
 <Bleed full>
-  ![Landscape](https://source.unsplash.com/eaxwP9J_V6s/1600x398)
+  ![风景](https://source.unsplash.com/eaxwP9J_V6s/1600x398)
 </Bleed>
 
 <Bleed full>

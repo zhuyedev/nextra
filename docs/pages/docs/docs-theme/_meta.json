@@ -1,7 +1,7 @@
 {
-  "start": "Get Started",
-  "page-configuration": "",
-  "theme-configuration": "",
-  "built-ins": "Built-ins",
+  "start": "开始使用",
+  "page-configuration": "页面配置",
+  "theme-configuration": "主题配置",
+  "built-ins": "内置组件",
   "api": "API"
 }

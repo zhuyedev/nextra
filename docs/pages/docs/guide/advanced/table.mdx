@@ -1,11 +1,10 @@
 import { Callout, Steps } from 'nextra/components'
 
-# Rendering Tables
+# 渲染表格
 
-## GFM syntax
+## GFM 语法
 
-In markdown is preferable write table via
-[GFM syntax](https://github.github.com/gfm/#tables-extension-).
+建议使用 [GFM 语法](https://github.github.com/gfm/#tables-extension-) 在 Markdown 中编写表格。
 
 ```mdx filename="Markdown"
 | left   | center | right |
@@ -14,16 +13,16 @@ In markdown is preferable write table via
 | banana | apple  |  kiwi |
 ```
 
-will be rendered as:
+将会被渲染为：
 
 | left   | center | right |
 | :----- | :----: | ----: |
 | foo    |  bar   |   baz |
 | banana | apple  |  kiwi |
 
-## HTML Literal Tables
+## 用 HTML 编写表格
 
-If you try to render the following literal `<table />{:jsx}` element:
+如果你尝试渲染下面这个直接用 HTML 写成的 `<table />{:jsx}` 元素
 
 ```mdx filename="Markdown"
 <table>
@@ -49,7 +48,7 @@ If you try to render the following literal `<table />{:jsx}` element:
 </table>
 ```
 
-you'll get the following result:
+你会获得如下的结果：
 
 <table>
   <thead>
@@ -74,29 +73,27 @@ you'll get the following result:
 </table>
 
 <Callout type="warning">
-  Confused by unstyled elements? We explained [here](#why-this-happens), why
-  this happens.
+  对于没有样式的结果感到困惑？我们在[这里](#why-this-happens)解释了原因。
 </Callout>
 
-## Dynamic Tables
+## 动态表格
 
-### How to Write
+### 如何书写？
 
-Want to render dynamic table? You can use embedded JavaScript expressions into
-your table for it:
+想要渲染动态表格吗？您可以通过在表格中嵌入 JavaScript 表达式来实现：
 
 ```mdx filename="Markdown"
 <table>
   <thead>
     <tr>
-      <th>Country</th>
-      <th>Flag</th>
+      <th>国家</th>
+      <th>国旗</th>
     </tr>
   </thead>
   <tbody>
     {[
-      { country: 'France', flag: '🇫🇷' },
-      { country: 'Ukraine', flag: '🇺🇦' }
+      { country: '法国', flag: '🇫🇷' },
+      { country: '乌克兰', flag: '🇺🇦' }
     ].map(item => (
       <tr key={item.country}>
         <td>{item.country}</td>
@@ -107,19 +104,19 @@ your table for it:
 </table>
 ```
 
-will be rendered as:
+会被渲染为：
 
 <table>
   <thead>
     <tr>
-      <th>Country</th>
-      <th>Flag</th>
+      <th>国家</th>
+      <th>国旗</th>
     </tr>
   </thead>
   <tbody>
     {[
-      { country: 'France', flag: '🇫🇷' },
-      { country: 'Ukraine', flag: '🇺🇦' }
+      { country: '法国', flag: '🇫🇷' },
+      { country: '乌克兰', flag: '🇺🇦' }
     ].map(item => (
       <tr key={item.country}>
         <td>{item.country}</td>
@@ -130,39 +127,34 @@ will be rendered as:
 </table>
 
 <Callout type="warning">
-  Confused by unstyled elements? We explain below 👇, why it's happens.
+  对无样式的元素感到困惑?我们在下面👇解释了为什么会发生这种情况。
 </Callout>
 
-### Unexpected Result
+### 令人意外的结果
 
-Table looks different compared to [GFM syntax table](#gfm-syntax):
+与 [GFM 语法表格](#gfm-syntax)相比，表格看起来有所不同：
 
-1. only children of table body `<tbody />{:jsx}` is styled
+1. 只有表格主体 `<tbody />{:jsx}` 的子元素被应用了样式
 
-2. table header is unstyled
+2. 表头没有样式
 
-3. table doesn't have margin top
+3. 表格没有上边距
 
-### Why This Happens
+### 为什么会这样
 
-MDX2 doesn't replace literal HTML elements with `<MDXProvider />{:jsx}`.
+MDX2 不会用 `<MDXProvider />{:jsx}` 替换直接用 HTML 语言书写的元素。
 
-Adam Wathan, creator of Tailwind CSS submitted
-[an issue](https://github.com/mdx-js/mdx/issues/821) in MDX2 to have some _an
-escape hatch_ that we can name like:
+Tailwind CSS 的创建者 Adam Wathan 在 MDX2 中提交了一个[问题](https://github.com/mdx-js/mdx/issues/821)，希望能有一个“逃生舱口”，我们可以这样命名：
 
-> please only transform markdown tags, not literal HTML tags
+> 请仅转换 Markdown 标签，而不是直接的 HTML 标签
 
-Table header looks unstyled since not replaced with Nextra's MDX components
-`<tr />{:jsx}`, `<th />{:jsx}` and `<td />{:jsx}`, for the same reason
-`<table />{:jsx}` literal is not replaced and doesn't have default margin-top
-aka `mt-6`.
+由于表头没有被 Nextra 的 MDX 组件 `<tr />{:jsx}`、`<th />{:jsx}` 和 `<td />{:jsx}` 替换，所以看起来没有样式。同样地，直接的 `<table />{:jsx}` 也没有被替换，因此没有默认的上边距 `mt-6`。
 
-### Ways to Fix It
+### 解决方法
 
-#### One-Time Fix
+#### 一次性修复
 
-Just wrap your table with curly braces `{` and `}`, e.g.
+只需用花括号 `{` 和 `}` 包裹您的表格，例如：
 
 ```text filename="Markdown"
 {<table>
@@ -170,21 +162,20 @@ Just wrap your table with curly braces `{` and `}`, e.g.
 </table>}
 ```
 
-#### Changing Default Behaviour
+#### 更改默认行为
 
-If this thing is still confusing for you, and you want to use regular literal
-HTML elements for your tables, do the following:
+如果您仍然对此感到困惑，并且希望为表格使用常规的直接 HTML 元素，请执行以下操作：
 
 <Steps>
-### Install `remark-mdx-disable-explicit-jsx` package
+### 安装 `remark-mdx-disable-explicit-jsx` 包
 
 ```sh npm2yarn
 npm i remark-mdx-disable-explicit-jsx
 ```
 
-### Setup
+### 设置
 
-Configure plugin in `nextra` function inside `next.config.mjs` file
+在 next.config.mjs 文件中的 nextra 函数中配置插件
 
 ```js filename="next.config.mjs" {2,8-13}
 import nextra from 'nextra'

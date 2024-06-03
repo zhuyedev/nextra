@@ -1,21 +1,16 @@
 # Npm2Yarn
 
-Nextra uses
-[`@theguild/remark-npm2yarn`](https://npmjs.com/package/@theguild/remark-npm2yarn)
-package that replaces the code block that has `npm2yarn` metadata with
-[`<Tabs />` and `<Tabs.Tab />` components](/docs/guide/built-ins/tabs) from
-`nextra/components`.
+Nextra 使用 [`@theguild/remark-npm2yarn`](https://npmjs.com/package/@theguild/remark-npm2yarn) 包，该包将具有 `npm2yarn` 元数据的代码块替换为来自 `nextra/components` 的[`<Tabs />` 和 `<Tabs.Tab />` 组件](/docs/guide/built-ins/tabs)。
 
-The chosen tab is saved in the local storage, which will be chosen in future
-page renders.
+所选择的标签页会保存在本地存储中，下次进入页面时会被选中。
 
-## Example
+## 示例
 
 ```sh npm2yarn
 npm i -D @graphql-eslint/eslint-plugin
 ```
 
-## Usage
+## 用法
 
 ````mdx filename="Markdown" /npm2yarn/
 ```sh npm2yarn

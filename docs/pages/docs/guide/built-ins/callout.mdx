@@ -1,108 +1,105 @@
-# Callout Component
+# 提示框组件
 
-A built-in component to show important information to the reader.
+一个内置组件，用于向读者展示重要信息。
 
 import { Callout } from 'nextra/components'
 
 ## Example
 
 <Callout>
-  A **callout** is a short piece of text intended to attract attention.
+  **提示框** 是一段用于吸引注意力的简短文字。
 </Callout>
 
 <Callout type="info">
-  A **callout** is a short piece of text intended to attract attention.
+  **提示框** 是一段用于吸引注意力的简短文字。
 </Callout>
 
 <Callout type="warning">
-  A **callout** is a short piece of text intended to attract attention.
+  **提示框** 是一段用于吸引注意力的简短文字。
 </Callout>
 
 <Callout type="error">
-  A **callout** is a short piece of text intended to attract attention.
+  **提示框** 是一段用于吸引注意力的简短文字。
 </Callout>
 
-## Usage
+## 用法
 
-### Default
+### 默认
 
 <Callout emoji="👾">
-  **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
-  Nishikado.
+  **太空入侵者** 是 1978 年由西角友宏开发的射击游戏。
 </Callout>
 
 ```mdx
 import { Callout } from 'nextra/components'
 
 <Callout emoji="👾">
-  **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
-  Nishikado.
+  **太空入侵者** 是 1978 年由西角友宏开发的射击游戏。
 </Callout>
 ```
 
 ### Info
 
 <Callout type="info" emoji="ℹ️">
-  Today is Friday.
+  今天是星期五。
 </Callout>
 
 ```mdx
 import { Callout } from 'nextra/components'
 
 <Callout type="info" emoji="ℹ️">
-  Today is Friday.
+  今天是星期五。
 </Callout>
 ```
 
 ### Warning
 
 <Callout type="warning" emoji="⚠️">
-  This API will be deprecated soon.
+  此 API 即将被弃用。
 </Callout>
 
 ```mdx
 import { Callout } from 'nextra/components'
 
 <Callout type="warning" emoji="⚠️">
-  This API will be deprecated soon.
+  此 API 即将被弃用。
 </Callout>
 ```
 
 ### Error
 
 <Callout type="error" emoji="🚫">
-  This is a dangerous feature that can cause everything to explode.
+  这是一个危险的功能，可能导致一切都发生爆炸。
 </Callout>
 
 ```mdx
 import { Callout } from 'nextra/components'
 
 <Callout type="error" emoji="️🚫">
-  This is a dangerous feature that can cause everything to explode.
+  这是一个危险的功能，可能导致一切都发生爆炸。
 </Callout>
 ```
 
 ## API
 
-The `Callout` component takes the following props:
+`Callout` 组件接受以下属性：
 
-### `type` (optional)
+### `type` （可选）
 
-The type of the Callout.
+提示框的类型。
 
-- Type: `'default' | 'info' | 'warning' | 'error'`
-- Default: `'default'`
+- 类型：`'default' | 'info' | 'warning' | 'error'`
+- 默认值：`'default'`
 
 ### `emoji` (optional)
 
-The icon to show in the Callout. You can also show your custom icon using this
-prop.
+在提示框中显示的图标。您也可以使用此属性显示自定义图标。
 
-- Type: `string | ReactNode`
-- Default: `'💡'`
+- 类型：`string | ReactNode`
+- 默认值：`'💡'`
 
 ### `children`
 
-The content of the Callout.
+提示框的内容。
 
-- Type: `ReactNode`
+- 类型：`ReactNode`

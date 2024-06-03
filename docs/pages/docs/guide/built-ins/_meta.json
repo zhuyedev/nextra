@@ -1,7 +1,7 @@
 {
-  "callout": "",
-  "tabs": "",
-  "cards": "",
-  "steps": "",
-  "filetree": "FileTree"
+  "callout": "提示框",
+  "tabs": "标签切换",
+  "cards": "卡片",
+  "steps": "步骤条",
+  "filetree": "文件树"
 }

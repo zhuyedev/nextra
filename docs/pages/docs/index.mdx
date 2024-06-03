@@ -2,7 +2,7 @@
 
 **Nextra** 是一个基于 Next.js 构建的框架,让你能够轻松构建以内容为中心的网站。它具有 Next.js 的所有出色功能,并且还额外提供了强大的功能,可以轻松创建基于 Markdown 的内容。
 
-## Quick Start
+## 快速开始
 
 import { Cards } from 'nextra/components'
 
@@ -26,7 +26,7 @@ import { Cards } from 'nextra/components'
 
 ## Nextra FAQ
 
-Nextra 常见问题是一个关于该项目的有用问题和答案的集合。如果你有一个在这里没有得到解答的问题,请[发布一个讨论](https://github.com/shuding/nextra/discussions)。
+Nextra FAQ 是一个关于该项目的有用问题和答案的集合。如果你有一个在这里没有得到解答的问题,请[发布一个讨论](https://github.com/shuding/nextra/discussions)。
 
 export function FAQBox({ title, children }) {
   return (
@@ -43,11 +43,11 @@ export function FAQBox({ title, children }) {
 }
 
 <FAQBox title="我可以将 Nextra 与 Next.js 应用路由器一起使用吗?">
-  可以,Nextra 目前只适用于 `/pages` 目录。对应用路由器的支持尚未实现。但是你可以同时使用 `/app` 和 `/pages` - 只需将你的文档放在 `/pages` 中,将其他路由放在 `/app` 中即可。
+  可以，Nextra 目前只适用于 `/pages` 目录。对应用路由器的支持尚未实现。但是你可以同时使用 `/app` 和 `/pages` —— 只需将你的文档放在 `/pages` 中，将其他路由放在 `/app` 中即可。
 </FAQBox>
 
 <FAQBox title="我可以在 Nextra 中使用 X 吗?">
-  对于大多数情况,答案都是"可以"。由于 Nextra 只是一个 Next.js 插件,几乎所有可以使用 React 完成的事情都可以使用 Nextra 完成。以下是一些示例和指南:
+  对于大多数情况,答案都是"可以"。由于 Nextra 只是一个 Next.js 插件，几乎所有可以使用 React 完成的事情都可以使用 Nextra 完成。以下是一些示例和指南：
 
 - [使用 Tailwind CSS](/docs/guide/tailwind-css)
 - [使用 custom CSS and Sass](/docs/guide/custom-css)
@@ -55,8 +55,6 @@ export function FAQBox({ title, children }) {
 
 </FAQBox>
 
-<FAQBox title="How can I add a live coding component in Nextra?">
-  There are libraries like [Sandpack](https://sandpack.codesandbox.io) and
-  [react-live](https://github.com/FormidableLabs/react-live) that can help you
-  add live coding components to your MDX.
+<FAQBox title="我如何在 Nextra 中添加实时编码组件？">
+  有一些库，例如 [Sandpack](https://sandpack.codesandbox.io) 和 [react-live](https://github.com/FormidableLabs/react-live) 可以帮助您在 MDX 中添加实时编码组件。
 </FAQBox>

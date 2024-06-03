@@ -1,18 +1,15 @@
 import { Callout, Steps } from 'nextra/components'
 
-# Next.js I18n
+# Next.js 国际化 (I18n)
 
-<Callout emoji="⚠️">This feature is only available in the docs theme.</Callout>
+<Callout emoji="⚠️">此功能仅在文档主题中可用。</Callout>
 
-Nextra supports
-[Next.js Internationalized Routing](https://nextjs.org/docs/advanced-features/i18n-routing)
-out of the box. These docs explain how to configure and use it.
+Nextra 开箱即用地支持 [Next.js 国际化路由](https://nextjs.org/docs/advanced-features/i18n-routing)。这些文档解释了如何配置和使用它。
 
 <Steps>
-### Add I18n Config
+### 添加国际化配置
 
-To add multi-language pages to your Nextra application, you need to config
-`i18n` in `next.config.js` first:
+要为您的 Nextra 应用程序添加多语言页面，首先需要在 `next.config.js` 中配置 `i18n`：
 
 ```js filename="next.config.js" {7-10}
 const withNextra = require('nextra')({
@@ -28,29 +25,27 @@ module.exports = withNextra({
 })
 ```
 
-### Add Middleware
+### 添加中间件
 
-Then, you need to add a `middleware.js` file in the root of your project
-([related Next.js docs](https://nextjs.org/docs/advanced-features/middleware)):
+然后，需要在项目根目录中添加一个 `middleware.js` 文件 ([相关 Next.js 文档](https://nextjs.org/docs/advanced-features/middleware)):
 
 ```js
 export { locales as middleware } from 'nextra/locales'
 ```
 
-If you already have the middleware defined, you can do this instead:
+如果您已经定义了中间件，可以这样做：
 
 ```js
 import { withLocales } from 'nextra/locales'
 
 export const middleware = withLocales(request => {
-  // Your middleware code...
+  // 您的中间件代码...
 })
 ```
 
-### Add Locale to Filenames
+### 在文件名中添加语言代码
 
-Then, add the locale codes to your file extensions (required for the default
-locale too):
+然后，在文件名中添加语言代码（默认语言也需要添加）：
 
 ```plaintext
 /pages
@@ -63,10 +58,9 @@ locale too):
   ...
 ```
 
-### Configure the Docs Theme
+### 配置文档主题
 
-Finally, add the `i18n` option to your `theme.config.jsx` to configure the
-language dropdown:
+最后，在 `theme.config.jsx` 中添加 `i18n` 选项，以配置语言下拉菜单：
 
 ```js filename="theme.config.jsx"
 i18n: [

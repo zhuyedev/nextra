@@ -1,20 +1,19 @@
-# Next.js Link
+# Next.js Link 组件
 
-All relative Markdown links are automatically converted to Next.js links. This
-means that the target page will be prefetched. And when you click on a link, the
-page will be loaded on the client-side like a SPA, without making a full page
-load. For example:
+所有相对的 Markdown 链接都会自动转换为 Next.js 链接。这意味着目标页面将会被预加载。当您点击链接时，页面将在客户端加载，就像一个单页应用（SPA）一样，而不会进行完整的页面加载。例如：
 
 ```md
-Click [here](/about) to read more.
+点击[这里](/about)了解更多。
 ```
 
-Will be equivalent to:
+将等同于：
 
 ```jsx
 import Link from 'next/link'
 
-Click <Link href="/about">here</Link> to read more.
+点击<Link href="/about">这里</Link>了解更多。
 ```
 
-This feature makes navigation between Nextra pages fast and seamless.
+此功能使得在 Nextra 页面之间的导航快速且无缝衔接。
+
+

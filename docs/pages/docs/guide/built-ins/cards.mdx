@@ -1,21 +1,21 @@
 import { CardsIcon, OneIcon, WarningIcon } from '@components/icons'
 import { Card, Cards } from 'nextra/components'
 
-# Cards Component
+# 卡片组件
 
-## Example
+## 示例
 
 <Cards>
   <Card
     icon={<WarningIcon />}
-    title="Callout"
+    title="提示框"
     href="/docs/guide/built-ins/callout"
   />
-  <Card icon={<CardsIcon />} title="Tabs" href="/docs/guide/built-ins/tabs" />
-  <Card icon={<OneIcon />} title="Steps" href="/docs/guide/built-ins/steps" />
+  <Card icon={<CardsIcon />} title="标签切换" href="/docs/guide/built-ins/tabs" />
+  <Card icon={<OneIcon />} title="步骤条" href="/docs/guide/built-ins/steps" />
 </Cards>
 
-## Usage
+## 用法
 
 {/* prettier-ignore */}
 ```mdx filename="Markdown"
@@ -23,8 +23,8 @@ import { Cards, Card } from 'nextra/components'
 import { CardsIcon, OneIcon, WarningIcon } from '../../icons'
 
 <Cards>
-  <Card icon={<WarningIcon />} title="Callout" href="/docs/guide/built-ins/callout" />
-  <Card icon={<CardsIcon />} title="Tabs" href="/docs/guide/built-ins/tabs" />
-  <Card icon={<OneIcon />} title="Steps" href="/docs/guide/built-ins/steps" />
+  <Card icon={<WarningIcon />} title="提示框" href="/docs/guide/built-ins/callout" />
+  <Card icon={<CardsIcon />} title="标签切换" href="/docs/guide/built-ins/tabs" />
+  <Card icon={<OneIcon />} title="步骤条" href="/docs/guide/built-ins/steps" />
 </Cards>
 ```

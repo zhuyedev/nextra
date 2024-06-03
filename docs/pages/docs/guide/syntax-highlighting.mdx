@@ -1,11 +1,9 @@
 import { OptionTable } from 'components/table'
 import { Callout } from 'nextra/components'
 
-# Syntax Highlighting
+# 语法高亮
 
-Nextra uses [Shiki](https://shiki.matsu.io) to do syntax highlighting at build
-time. It's very reliable and performant. For example, adding this in your
-Markdown file:
+Nextra 使用 [Shiki](https://shiki.matsu.io) 在构建时进行语法高亮。这非常可靠且高效。例如，在您的 Markdown 文件中添加以下内容：
 
 ````md filename="Markdown"
 ```js
@@ -13,27 +11,25 @@ console.log('hello, world')
 ```
 ````
 
-Results in:
+最终效果：
 
 ```js
 console.log('hello, world')
 ```
 
-## Features
+## 特性
 
-### Inlined Code
+### 行内代码
 
-Inlined syntax highlighting like `let x = 1{:jsx}` is also supported via the
-`{:}` syntax:
+通过 `{:}` 语法支持内联语法高亮，例如 `let x = 1{:jsx}`：
 
 ```md filename="Markdown"
-Inlined syntax highlighting is also supported `let x = 1{:jsx}` via:
+通过 `{:}` 语法支持内联语法高亮，例如 `let x = 1{:jsx}`：
 ```
 
 ### Highlighting Lines
 
-You can highlight specific lines of code by adding a `{}` attribute to the code
-block:
+通过在代码块中添加 `{}` 属性，可以高亮特定的代码行：
 
 ````md filename="Markdown"
 ```js {1,4-5}
@@ -46,7 +42,7 @@ function Counter() {
 ```
 ````
 
-Result:
+最终效果：
 
 ```js {1,4-5}
 import { useState } from 'react'
@@ -57,10 +53,9 @@ function Counter() {
 }
 ```
 
-### Highlighting Substrings
+### 高亮子字符串
 
-You can highlight specific substrings of code by adding a `//` attribute to the
-code block:
+通过在代码块中添加 `//` 属性，可以高亮特定的子字符串：
 
 ````md filename="Markdown"
 ```js /useState/
@@ -73,6 +68,8 @@ function Counter() {
 ```
 ````
 
+最终效果：
+
 ```js /useState/
 import { useState } from 'react'
 
@@ -82,13 +79,11 @@ function Counter() {
 }
 ```
 
-You can highlight only a part of the occurrences of that substring by adding a
-number it: `/str/1`, or multiple: `/str/1-3`, `/str/1,3`.
+您可以通过在子字符串后添加数字来只高亮部分出现的子字符串，例如：`/str/1`，或者高亮多个特定的部分：`/str/1-3`、`/str/1,3`。
 
-### Copy Button
+### 复制按钮
 
-By adding a `copy` attribute, a copy button will be added to the code block when
-the user hovers over it:
+通过添加 `copy` 属性，当用户悬停时，将在代码块上添加一个复制按钮：
 
 ````md filename="Markdown"
 ```js copy
@@ -96,20 +91,17 @@ console.log('hello, world')
 ```
 ````
 
-Renders:
+最终效果：
 
 ```js copy
 console.log('hello, world')
 ```
 
-You can enable this feature globally by setting `defaultShowCopyCode: true` in
-your Nextra configuration (`next.config.js` file). Once it's enabled globally,
-you can disable it via the `copy=false` attribute.
+您可以通过在 Nextra 配置文件（`next.config.js` 文件）中设置 `defaultShowCopyCode: true` 来全局启用此功能。一旦全局启用，您可以通过 `copy=false` 属性来禁用它。
 
-### Line Numbers
+### 行号
 
-You can add line numbers to your code blocks by adding a `showLineNumbers`
-attribute:
+通过添加 `showLineNumbers` 属性，可以在代码块中添加行号：
 
 ````md filename="Markdown"
 ```js showLineNumbers
@@ -122,7 +114,7 @@ function Counter() {
 ```
 ````
 
-Renders:
+最终效果：
 
 ```js showLineNumbers
 import { useState } from 'react'
@@ -133,10 +125,9 @@ function Counter() {
 }
 ```
 
-### Filenames and Titles
+### 文件名和标题
 
-You can add a filename or a title to your code blocks by adding a `filename`
-attribute:
+通过添加 `filename` 属性，您可以为代码块添加文件名或标题：
 
 ````md filename="Markdown"
 ```js filename="example.js"
@@ -144,15 +135,15 @@ console.log('hello, world')
 ```
 ````
 
-Renders:
+最终效果：
 
 ```js filename="example.js"
 console.log('hello, world')
 ```
 
-### ANSI Highlighting
+### ANSI 高亮
 
-You can highlight ANSI escape codes:
+您可以高亮 ANSI 转义码：
 
 ````md filename="Markdown"
 ```ansi
@@ -166,7 +157,7 @@ You can highlight ANSI escape codes:
 ```
 ````
 
-Renders:
+最终效果：
 
 ```ansi
 [0m [0;32m✓[0m [0;2msrc/[0mindex[0;2m.test.ts (1)[0m
@@ -178,17 +169,13 @@ Renders:
          [0;2mpress [0;1mh[0;2m to show help, press [0;1mq[0;2m to quit
 ```
 
-## Supported Languages
+## 支持的语言
 
-Check [this list](https://github.com/shikijs/shiki/blob/main/docs/languages.md)
-for all supported languages.
+查看[此列表](https://github.com/shikijs/shiki/blob/main/docs/languages.md)了解所有支持的语言。
 
-## Customize the Theme
+## 自定义主题
 
-Nextra uses CSS variables to define the colors for tokens. You can inject a
-[global CSS](https://nextjs.org/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)
-to customize them under light/dark themes. For example this is the default
-tokens and you can override any of these:
+Nextra 使用 CSS 变量定义标记的颜色。您可以注入一个[全局 CSS](https://nextjs.org/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)来在浅色/深色主题下自定义它们。例如，这是默认的标记，您可以覆盖其中的任何一个：
 
 ```css filename="styles.css"
 :root {
@@ -219,18 +206,16 @@ tokens and you can override any of these:
 }
 ```
 
-## With Dynamic Content
+## 动态内容
 
-Since syntax highlighting is done at build time, you can’t use dynamic content
-in your code blocks. However, since MDX is very powerful there is a workaround
-via client JS. For example:
+由于语法高亮是在构建时完成的，您不能在代码块中使用动态内容。然而，由于 MDX 非常强大，可以通过客户端 JS 来解决这个问题。例如：
 
 import { useEffect, useRef } from 'react'
 
 export function DynamicCode({ children }) {
   const ref = useRef()
   const tokenRef = useRef()
-  // Find the corresponding token from the DOM
+  // 从 DOM 中找到对应的标记
   useEffect(() => {
     if (ref.current) {
       const token = [...ref.current.querySelectorAll('code span')].find(
@@ -281,39 +266,29 @@ function hello () {
 ```
 </DynamicCode>
 
-This workaround has a limitation that updated content won't be re-highlighted.
-For example if we update the number to `1 + 1`, it will be incorrectly
-highlighted.
+这种方法的限制是更新的内容不会重新高亮显示。例如，如果我们将数字更新为 `1 + 1`，它将被错误地高亮显示。
 
-Check out the
-[code](https://github.com/shuding/nextra/blob/main/docs/pages/docs/guide/syntax-highlighting.mdx)
-to see how it works.
+查看[代码](https://github.com/shuding/nextra/blob/main/docs/pages/docs/guide/syntax-highlighting.mdx)了解其工作原理。
 
-## Disable Syntax Highlighting
+## 禁用语法高亮
 
-You can opt out of syntax highlighting for using one of your own. You can
-disable syntax highlighting globally by setting `codeHighlight: false` in your
-Nextra configuration (`next.config.js` file).
+您可以选择不使用语法高亮，改用自己的方案。您可以通过在 Nextra 配置文件（`next.config.js` 文件）中设置 `codeHighlight: false` 来全局禁用语法高亮。
 
 <OptionTable
   options={[
     [
       'codeHighlight',
       'boolean',
-      'Enable or disable syntax highlighting. Defaults to `true`.'
+      '启用或禁用语法高亮。默认为 `true`。'
     ]
   ]}
 />
 
-## Custom Grammar
+## 自定义语法
 
-Shiki accepts a
-[VSCode TextMate Grammar](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
-for syntax highlighting with custom language grammars.
+Shiki 接受[VSCode TextMate 语法](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)用于自定义语言语法的语法高亮。
 
-You can provide these grammars by overriding the `getHighlighter` function in
-`mdxOptions.rehypePrettyCodeOptions` option in your Nextra config inside
-`next.config.js`:
+您可以通过覆盖 Nextra 配置中的 `next.config.js` 文件内的 `mdxOptions.rehypePrettyCodeOptions` 选项中的 `getHighlighter` 函数来提供这些语法：
 
 ```js filename="next.config.js" {13-18}
 import { BUNDLED_LANGUAGES } from 'shiki'
@@ -327,11 +302,11 @@ nextra({
           ...options,
           langs: [
             ...BUNDLED_LANGUAGES,
-            // custom grammar options, see the Shiki documentation for how to provide these options
+            // 自定义语法选项，详见 Shiki 文档了解如何提供这些选项
             {
               id: 'my-lang',
               scopeName: 'source.my-lang',
-              aliases: ['mylang'], // Along with id, aliases will be included in the allowed names you can use when writing markdown.
+              aliases: ['mylang'], // 除了 id，别名也将包含在允许使用的名称中，用于编写 markdown。
               path: '../../public/syntax/grammar.tmLanguage.json'
             }
           ]
@@ -341,17 +316,16 @@ nextra({
 })
 ```
 
-## Custom Themes
+## 自定义主题
 
-Within `mdxOptions.rehypePrettyCodeOptions` you may also provide custom themes
-instead of [relying on CSS Variables](/docs/guide/syntax-highlighting):
+在 `mdxOptions.rehypePrettyCodeOptions` 中，您还可以提供自定义主题，而不是[依赖 CSS 变量](/docs/guide/syntax-highlighting):
 
 ```js filename="next.config.js" {4}
 nextra({
-  // ... other options
+  // ...其他选项
   mdxOptions: {
     rehypePrettyCodeOptions: {
-      // VSCode theme or built-in Shiki theme, see Shiki documentation for more information
+      // VSCode 主题或内置 Shiki 主题，详见 Shiki 文档了解更多信息
       theme: JSON.parse(
         readFileSync('./public/syntax/arctis_light.json', 'utf8')
       )
@@ -360,15 +334,12 @@ nextra({
 })
 ```
 
-### Multiple Themes
+### 多主题
 
-Nextra currently doesn't support specifying multiple themes. Because Shiki
-renders multiple code blocks for every theme and tags them with an attribute
-`data-theme`, e.g. `data-theme="dark"`.
+Nextra 目前不支持多主题。因为 Shiki 为每个主题渲染多个代码块，并为它们添加 `data-theme` 属性，例如 `data-theme="dark"`。
 
 <Callout type="info">
-  However, in the future, multiple themes will be supported. You can track the
-  progress in shikiji (newly fork of Shiki)
-  https://github.com/antfu/shikiji#multiple-themes that already supports
-  multiple themes without rendering multiple code blocks.
+  然而未来将会支持多主题。 你可以在 shikiji (Shiki 的新分支) 中跟踪进度。
+  https://github.com/antfu/shikiji#multiple-themes
+  已经支持多主题而无需渲染多个代码块。
 </Callout>

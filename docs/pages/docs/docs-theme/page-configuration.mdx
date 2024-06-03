@@ -1,11 +1,8 @@
-# Page Configuration
+# 页面配置
 
-In Nextra, the site and page structure can be configured via the co-located
-`_meta.json` files. In the docs theme, there are some extra options available to
-customize it further.
+在 Nextra 中，网站和页面结构可以通过位于同一文件夹下的 `_meta.json` 文件进行配置。在文档主题中，有一些额外的选项可以进一步自定义它。
 
-Those configurations affect the overall layout of the theme, especially the
-navigation bar and the sidebar.
+这些配置会影响主题的整体布局，特别是导航栏和侧边栏。
 
 import { Screenshot } from 'components/screenshot'
 import Video from 'components/video'
@@ -13,15 +10,12 @@ import { Callout, FileTree } from 'nextra/components'
 import menuImage from '../../../public/assets/docs/menu.png'
 
 <Callout>
-  Read more about Nextra's `_meta.json` files
-  [here](/docs/guide/organize-files).
+  了解更多关于 Nextra 的 `_meta.json` 文件的信息，请点击[这里](/docs/guide/organize-files)。
 </Callout>
 
-## Pages
+## 页面
 
-The title and order of a page shown in the sidebar should be configured in the
-`_meta.json` file as key-value pairs. For example, if you have the following
-file structure:
+在侧边栏中显示的页面标题和顺序应在 `_meta.json` 文件中配置为键值对。例如，如果你有以下文件结构：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -32,25 +26,23 @@ file structure:
   </FileTree.Folder>
 </FileTree>
 
-You can define how the pages are shown in the sidebar via the `_meta.json` file:
+你可以通过 `_meta.json` 文件定义页面在侧边栏中的显示方式：
 
 ```json filename="_meta.json"
 {
-  "index": "My Homepage",
-  "contact": "Contact Us",
-  "about": "About Us"
+  "index": "我的主页",
+  "contact": "联系我们",
+  "about": "关于我们"
 }
 ```
 
 <Callout>
-  If any routes are not listed in the `_meta.json` file, they will be appended
-  to the end of the sidebar and sorted alphabetically, and the title will be
-  formatted with [Title](https://title.sh).
+  如果 `_meta.json` 文件中没有列出的任何路由，它们将被附加到侧边栏的末尾并按字母顺序排序，标题将使用 [Title](https://title.sh) 格式化。
 </Callout>
 
-## Folders
+## 文件夹
 
-Folders can be configured in the same way as pages. For example:
+文件夹可以以与页面相同的方式配置。例如：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -66,37 +58,31 @@ Folders can be configured in the same way as pages. For example:
   </FileTree.Folder>
 </FileTree>
 
-The top-level `_meta.json` file contains the meta information for the top-level
-pages and folders:
+顶级 `_meta.json` 文件包含顶级页面和文件夹的元信息：
 
 ```json filename="pages/_meta.json"
 {
-  "index": "My Homepage",
-  "contact": "Contact Us",
-  "fruits": "Delicious Fruits",
-  "about": "About Us"
+  "index": "我的主页",
+  "contact": "联系我们",
+  "fruits": "美味水果",
+  "about": "关于我们"
 }
 ```
 
-And the nested `_meta.json` file contains the meta information for pages in the
-same folder:
+嵌套的 `_meta.json` 文件包含相同文件夹中页面的元信息：
 
 ```json filename="pages/fruits/_meta.json"
 {
-  "apple": "Apple",
-  "banana": "Banana"
+  "apple": "苹果",
+  "banana": "香蕉"
 }
 ```
 
-This way, information for pages are grouped together in directories. You can
-move directories around without having to change the `_meta.json` file.
+这样，页面信息就被分组在目录中。你可以移动目录而不需要更改 `_meta.json` 文件。
 
-### Folders with Index Page
+### 带索引页面的文件夹
 
-What if I want to have a folder with an index page? We can add a MDX page with
-the same name and in the same directory as the folder. Let's say we want to add
-`/fruits` route in the example above, we can create a `fruits.mdx` file in
-pages:
+如果我想要有一个带索引页面的文件夹怎么办？我们可以在与文件夹相同的目录中创建一个与文件夹同名的 MDX 页面。假设我们想要在上述示例中添加 `/fruits` 路由，我们可以在 pages 中创建一个 `fruits.mdx` 文件：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -113,21 +99,18 @@ pages:
   </FileTree.Folder>
 </FileTree>
 
-Then Nextra knows that the `fruits` key in `_meta.json` defines a folder with an
-index page. If you click that folder in the sidebar, it will open the folder and
-show you the `fruits.mdx` page at the same time.
+然后 Nextra 知道 `_meta.json` 中的 `fruits` 键定义了一个带索引页面的文件夹。如果你在侧边栏中点击该文件夹，它将打开文件夹并同时显示 `fruits.mdx` 页面。
 
-## External Links
+## 外部链接
 
-You can add external links to the sidebar by adding an item with `href` in
-`_meta.json`:
+你可以通过在 `_meta.json` 中添加一个带有 `href` 的项目来将外部链接添加到侧边栏：
 
 ```json filename="pages/_meta.json" {6-9}
 {
-  "index": "My Homepage",
-  "contact": "Contact Us",
-  "fruits": "Delicious Fruits",
-  "about": "About Us",
+  "index": "我的主页",
+  "contact": "联系我们",
+  "fruits": "美味水果",
+  "about": "关于我们",
   "github_link": {
     "title": "Nextra",
     "href": "https://github.com/shuding/nextra"
@@ -135,14 +118,14 @@ You can add external links to the sidebar by adding an item with `href` in
 }
 ```
 
-To always open the link in a new tab, enable the `"newWindow": true` option:
+要始终在新标签页中打开链接，请启用 `"newWindow": true` 选项：
 
 ```json filename="pages/_meta.json" {9}
 {
-  "index": "My Homepage",
-  "contact": "Contact Us",
-  "fruits": "Delicious Fruits",
-  "about": "About Us",
+  "index": "我的主页",
+  "contact": "联系我们",
+  "fruits": "美味水果",
+  "about": "关于我们",
   "github_link": {
     "title": "Nextra",
     "href": "https://github.com/shuding/nextra",
@@ -152,39 +135,32 @@ To always open the link in a new tab, enable the `"newWindow": true` option:
 ```
 
 <Callout>
-  You can use this option to link to relative internal links too.
+  你也可以使用此选项链接到相对内部链接。
 </Callout>
 
-## Hidden Routes
+## 隐藏路由
 
-By default, all MDX routes in the filesystem will be shown on the sidebar. But
-you can hide a specific pages or folders by using the `"display": "hidden"`
-configuration:
+默认情况下，文件系统中的所有 MDX 路由将显示在侧边栏中。但是你可以使用 `"display": "hidden"` 配置隐藏特定页面或文件夹：
 
 ```json filename="pages/_meta.json" {4}
 {
-  "index": "My Homepage",
+  "index": "我的主页",
   "contact": {
     "display": "hidden"
   },
-  "about": "About Us"
+  "about": "关于我们"
 }
 ```
 
-The page will still be accessible via the `/contact` URL, but it will not be
-shown in the sidebar.
+该页面仍然可以通过 `/contact URL` 访问，但不会显示在侧边栏中。
 
-## Navbar Items
+## 导航栏项
 
-### Sub Docs
+### 子文档
 
-By defining a top-level page or folder as `"type": "page"`, it will be shown as
-a special page on the navigation bar, instead of the sidebar. With this feature,
-you can have multiple "sub docs", and special pages or links such as "Contact
-Us" that are always visible.
+通过将顶级页面或文件夹定义为 `"type": "page"`，它将显示为导航栏上的特殊页面，而不是侧边栏。使用此功能，你可以拥有多个“子文档”，以及诸如“联系我们”之类的特殊页面或链接，这些页面或链接始终可见。
 
-For example, you can have 2 docs folders `frameworks` and `fruits` in your
-project:
+例如，你可以在项目中拥有两个文档文件夹 `frameworks` 和 `fruits`：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -203,66 +179,61 @@ project:
   </FileTree.Folder>
 </FileTree>
 
-In your top-level `_meta.json` file, you can set everything as a page, instead
-of a normal sidebar item:
+在你的顶级 `_meta.json` 文件中，你可以将所有内容设置为页面，而不是普通的侧边栏项目：
 
 ```json filename="pages/_meta.json"
 {
   "index": {
-    "title": "Home",
+    "title": "首页",
     "type": "page"
   },
   "frameworks": {
-    "title": "Frameworks",
+    "title": "框架",
     "type": "page"
   },
   "fruits": {
-    "title": "Fruits",
+    "title": "水果",
     "type": "page"
   },
   "about": {
-    "title": "About",
+    "title": "关于我们",
     "type": "page"
   }
 }
 ```
 
-And it will look like this:
+它将如下所示：
 
 <Video src="/assets/docs/sub-docs.mp4" />
 
 <div className="mt-4 text-center text-sm">
-  [Live example on StackBlitz
-  ↗](https://stackblitz.com/edit/nextra-2-docs-eszspq?file=pages%2F_meta.json)
+  [ StackBlitz 上的在线示例 ↗](https://stackblitz.com/edit/nextra-2-docs-eszspq?file=pages%2F_meta.json)
 </div>
 
-You can also hide links like `Home` from the navbar with the
-[`"display": "hidden"`](#hidden-routes) option.
+你也可以使用[`"display": "hidden"`](#hidden-routes) 选项从导航栏中隐藏类似`首页`的链接。
 
-### Menus
+### 菜单
 
-You can also add menus to the navbar using `"type": "menu"` and the `"items"`
-option:
+你还可以使用 `"type": "menu"` 和 `"items"` 选项将菜单添加到导航栏：
 
 <Screenshot src={menuImage} alt="Navbar menu" />
 
 <div className="mt-8 text-center text-sm">
-  [Live example on StackBlitz
-  ↗](https://stackblitz.com/edit/nextra-2-docs-2qopvp?file=pages%2F_meta.json)
+  [StackBlitz 上的在线示例 ↗](https://stackblitz.com/edit/nextra-2-docs-2qopvp?file=pages%2F_meta.json)
 </div>
 
 ```json filename="pages/_meta.json"
 {
   "company": {
-    "title": "Company",
+    "title": "公司",
     "type": "menu",
     "items": {
       "about": {
-        "title": "About",
+        "title": "关于我们",
         "href": "/about"
       },
       "contact": {
-        "title": "Contact Us",
+        "title": "联系我们",
         "href": "mailto:hi@example.com"
       }
     }
@@ -270,23 +241,22 @@ option:
 }
 ```
 
-### Links
+### 链接
 
-Same as the [External Links](#external-links) option, you can have external
-links in the navbar too:
+与 [外部链接](#external-links) 选项相同，你也可以在导航栏中添加外部链接：
 
 ```json filename="pages/_meta.json"
 {
   "index": {
-    "title": "Home",
+    "title": "首页",
     "type": "page"
   },
   "about": {
-    "title": "About",
+    "title": "关于我们",
     "type": "page"
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "联系我们",
     "type": "page",
     "href": "https://example.com/contact",
     "newWindow": true
@@ -294,59 +264,52 @@ links in the navbar too:
 }
 ```
 
-## Fallbacks
+## 默认配置
 
-In the [Sub Docs](#sub-docs) example above, we have to define the
-`"type": "page"` option for every page. To make it easier, you can use the `"*"`
-key to define the fallback configuration for all items in this folder:
+在上面的子文档 [Sub Docs](#sub-docs) 示例中，我们必须为每个页面定义 `"type": "page"` 选项。为了简化，你可以使用 `"*"` 键为此文件夹中的所有项目定义回退配置：
 
 ```json filename="pages/_meta.json" {2-4}
 {
   "*": {
     "type": "page"
   },
-  "index": "Home",
-  "frameworks": "Frameworks",
-  "fruits": "Fruits",
-  "about": "About"
+  "index": "首页",
+  "frameworks": "框架",
+  "fruits": "水果",
+  "about": "关于我们"
 }
 ```
 
-They are equivalent where all items have `"type": "page"` set.
+这等价于所有项目都设置了 `"type": "page"`。
 
-## Separators
+## 分隔符
 
-You can use a "placeholder" item with `"type": "separator"` to create a
-separator line between items in the sidebar:
+你可以使用 `"type": "separator"` 的“占位符”项目在侧边栏项目之间创建分隔线：
 
 ```json filename="_meta.json"
 {
-  "index": "My Homepage",
+  "index": "我的主页",
   "---": {
     "type": "separator"
   },
-  "contact": "Contact Us"
+  "contact": "联系我们"
 }
 ```
 
 <Callout>
-  Together with the
-  [`sidebar.titleComponent`](/docs/docs-theme/theme-configuration#sidebar) theme
-  option, you can customize the look of titles and separator lines in the
-  sidebar.
+  结合 [`sidebar.titleComponent`](/docs/docs-theme/theme-configuration#sidebar) 主题选项，你可以自定义侧边栏中标题和分隔线的外观。
 </Callout>
 
-## Advanced
+## 高级配置
 
-### Theme Components
+### 主题组件
 
-You can configure the theme for each page using the `"theme"` option. For
-example, you can disable or enable specific components for specific pages:
+你可以使用 `"theme"` 选项为每个页面配置主题。例如，你可以为特定页面禁用或启用特定组件：
 
 ```json filename="pages/_meta.json"
 {
   "index": {
-    "title": "Home",
+    "title": "首页",
     "theme": {
       "breadcrumb": false,
       "footer": true,
@@ -358,18 +321,15 @@ example, you can disable or enable specific components for specific pages:
 }
 ```
 
-This option will be inherited by all child pages if set to a folder.
+如果设置为文件夹，则该选项将被所有子页面继承。
 
-### Layouts
+### 布局
 
-By default, each page has `"layout": "default"` in their theme config, which is
-the default behavior.
+默认情况下，每个页面在其主题配置中都有 `"layout": "default"`，这是默认行为。
 
-#### Raw Layout
+#### 无样式布局
 
-By default, Nextra renders the MDX content (such as `h1`, `h2`, `h3` etc.) with
-themed components, inside a content container. You can use the `"raw"` layout to
-let Nextra to not inject any styles to the content:
+默认情况下，Nextra 使用主题组件渲染 MDX 内容（例如 `h1`、`h2`、`h3` 等），并在内容容器中。你可以使用 `"raw"` 布局让 Nextra 不向内容注入任何样式：
 
 ```json filename="pages/_meta.json" {5}
 {
@@ -382,15 +342,14 @@ let Nextra to not inject any styles to the content:
 }
 ```
 
-#### Full Layout
+#### 全屏布局
 
-You might want to render some page with the full container width and height, but
-keep all the other styles. You can use the `"full"` layout to do that:
+你可能希望使用完整的容器宽度和高度渲染某些页面，但保留所有其他样式。你可以使用 `"full"` 布局来实现：
 
 ```json filename="pages/_meta.json" {5}
 {
   "index": {
-    "title": "Home",
+    "title": "首页",
     "theme": {
       "layout": "full"
     }
@@ -398,19 +357,16 @@ keep all the other styles. You can use the `"full"` layout to do that:
 }
 ```
 
-### Typesetting
+### 排版
 
-The `"typesetting"` option controls typesetting details like font features,
-heading styles and components like `li` and `code`. There are `"default"` and
-`"article"` typesettings available in the docs theme.
+`"typesetting"` 选项控制排版细节，如字体特性、标题样式和组件（如 `li` 和 `code`）。文档主题中提供了 `"default"` 和 `"article"` 排版。
 
-The default one is suitable for most cases like documentation, but you can use
-the `"article"` typesetting to make it look like an elegant article page:
+默认的适用于大多数情况，如文档，但你可以使用 `"article"` 排版使其看起来像一篇优雅的文章页面：
 
 ```json filename="pages/_meta.json" {5}
 {
   "about": {
-    "title": "About Us",
+    "title": "关于我们",
     "theme": {
       "typesetting": "article"
     }
@@ -419,6 +375,5 @@ the `"article"` typesetting to make it look like an elegant article page:
 ```
 
 <div className="mt-4 text-center text-sm">
-  [Live example on StackBlitz
-  ↗](https://stackblitz.com/edit/nextra-2-docs-hg77h3?file=pages%2F_meta.json,pages%2Findex.mdx)
+  [StackBlitz 上的在线示例 ↗](https://stackblitz.com/edit/nextra-2-docs-hg77h3?file=pages%2F_meta.json,pages%2Findex.mdx)
 </div>

@@ -11,9 +11,9 @@ export function OptionTable({ options }: { options: [string, string, any] }) {
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="border-b py-4 text-left dark:border-neutral-700">
-            <th className="py-2 font-semibold">Option</th>
-            <th className="py-2 pl-6 font-semibold">Type</th>
-            <th className="px-6 py-2 font-semibold">Description</th>
+            <th className="py-2 font-semibold">选项</th>
+            <th className="py-2 pl-6 font-semibold">类型</th>
+            <th className="px-6 py-2 font-semibold">描述</th>
           </tr>
         </thead>
         <tbody className="align-baseline text-gray-900 dark:text-gray-100">

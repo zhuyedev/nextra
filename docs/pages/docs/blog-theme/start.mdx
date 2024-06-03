@@ -1,40 +1,35 @@
 import { Callout, Steps } from 'nextra/components'
 
-# Get Started
+# 入门指南
 
-<Callout type="warning">Docs for this theme is under construction.</Callout>
+<Callout type="warning">此主题的文档正在建设中。</Callout>
 
 <Callout>
-  An example of the blog theme can be found [here](https://demo.vercel.blog),
-  with source code [here](https://github.com/vercel/nextjs-portfolio-starter).
+  博客主题的示例可以在[这里](https://demo.vercel.blog)找到，源代码在[这里](https://github.com/vercel/nextjs-portfolio-starter)。
 </Callout>
 
-Similar to the [Docs Theme](/docs/docs-theme/start), you can install the blog
-theme with the following commands:
+与[文档主题](/docs/docs-theme/start)类似，您可以使用以下命令安装博客主题：
 
-## Quick Start from Template
+## 从模板快速开始
 
-## Start as New Project
+## 作为新项目启动
 
 <Steps>
-### Install
+### 安装
 
-To create a Nextra Docs site manually, you have to install **Next.js**,
-**React**, **Nextra**, and **Nextra Blog Theme**. In your project directory, run
-the following command to install the dependencies:
+要手动创建 Nextra 文档站点，您需要安装 **Next.js**、**React**、**Nextra** 和 **Nextra Blog Theme**。在您的项目目录中，运行以下命令以安装依赖项：
 
 ```sh npm2yarn
 npm i next react react-dom nextra nextra-theme-blog
 ```
 
 <Callout>
-  If you already have Next.js installed in your project, you only need to
-  install `nextra` and `nextra-theme-blog` as the add-ons.
+  如果您的项目中已经安装了 Next.js，您只需要安装 `nextra` 和 `nextra-theme-blog` 作为附加组件。
 </Callout>
 
-### Add Next.js Config
+### 添加 Next.js 配置
 
-Create the following `next.config.js` file in your project’s root directory:
+在项目的根目录中创建以下 `next.config.js` 文件：
 
 ```js filename="next.config.js"
 const withNextra = require('nextra')({
@@ -44,18 +39,15 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra()
 
-// If you have other Next.js configurations, you can pass them as the parameter:
+// 如果您有其他 Next.js 配置，可以将它们作为参数传递：
 // module.exports = withNextra({ /* other next.js config */ })
 ```
 
-With the above configuration, Nextra can handle Markdown files in your Next.js
-project, with the specified theme. Other Nextra configurations can be found in
-[Guide](/docs/guide).
+通过上述配置，Nextra 可以在您的 Next.js 项目中处理 Markdown 文件，并应用指定的主题。其他 Nextra 配置可以在[指南](/docs/guide)中找到。
 
-### Create Blog Theme Config
+### 创建博客主题配置
 
-Lastly, create the corresponding `theme.config.jsx` file in your project’s root
-directory. This will be used to configure the Nextra Blog theme:
+  最后，在项目的根目录中创建相应的 `theme.config.jsx` 文件。这将用于配置 Nextra 博客主题：
 
 ```jsx filename="theme.config.jsx"
 export default {
@@ -69,7 +61,7 @@ export default {
       {meta.author && <meta name="author" content={meta.author} />}
     </>
   ),
-  readMore: 'Read More →',
+  readMore: '阅读更多 →',
   postFooter: null,
   darkMode: false,
   navs: [
@@ -81,9 +73,8 @@ export default {
 }
 ```
 
-### Ready to Go!
+### 准备就绪！
 
-Now, you can run the `next` or `next dev` command specified in `package.json` to
-start developing the project! 🎉
+现在，您可以运行 package.json 中指定的 next 或 next dev 命令来开始开发项目！🎉
 
 </Steps>

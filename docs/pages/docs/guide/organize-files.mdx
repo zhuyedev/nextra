@@ -1,30 +1,24 @@
 import { FileIcon, NewsletterIcon } from '@components/icons'
 import { Card, Cards, FileTree } from 'nextra/components'
 
-# Organize Files
+# 组织文件结构
 
-Nextra first collects all your Markdown files and configurations from the
-`pages` directory, and then generates the “page map information” of your entire
-site, to render things such as the _navigation bar_ and _sidebar_ below:
+Nextra 首先从 `pages` 目录收集所有的 Markdown 文件和配置，然后生成您整个网站的“页面映射信息”，以渲染如下内容：_导航栏_ 和 _侧边栏_：
 
 <br />
 
 <figure>
-  <>![Example of Nextra Theme Docs](/assets/routing@1x.png)</>
+  <>![Nextra 主题文档示例](/assets/routing@1x.png)</>
   <figcaption>
-    Example: [Nextra Docs Theme](/docs/docs-theme) has sidebar and navbar
-    generated automatically from Markdown files.
+    示例：[Nextra 文档主题](/docs/docs-theme) 会从 Markdown 文件自动生成侧边栏和导航栏。
   </figcaption>
 </figure>
 
-## Default Behavior
+## 默认行为
 
-By default, the page map contains all `.md` and `.mdx` filenames and the
-directory structure, sorted alphabetically. Then, Nextra will use the
-[title](https://github.com/vercel/title) package to get formatted page names
-from filenames.
+默认情况下，页面映射包含所有 `.md` 和 `.mdx` 文件名及其目录结构，按字母顺序排序。然后，Nextra 将使用 [title](https://github.com/vercel/title) 包从文件名获取格式化的页面名称。
 
-For example if you have the following structure:
+例如，如果您有以下结构：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -37,7 +31,7 @@ For example if you have the following structure:
   </FileTree.Folder>
 </FileTree>
 
-The resolved page map will be (note that all names were sorted alphabetically):
+解析出的页面映射将会是（注意所有名称都按字母排序）：
 
 ```json
 [
@@ -50,19 +44,13 @@ The resolved page map will be (note that all names were sorted alphabetically):
 ]
 ```
 
-And the global page map will be bundled to each page by Nextra. Then, configured
-theme will render the actual UI with that page map.
+然后，全局页面映射将被 Nextra 打包到每个页面中。之后，配置的主题将使用该页面映射渲染实际的用户界面。
 
 ## `_meta.json`
 
-It's very common to customize each page's title, rather than just relying on
-filenames. Having a page titled "Index" lacks clarity. It is preferable to
-assign a meaningful title that accurately represents the content, such as
-"Home".
+通常需要自定义每个页面的标题，而不仅仅依赖文件名。标题为“首页”的页面缺乏清晰度。更好的做法是赋予一个准确反映内容的有意义的标题，如“主页”。
 
-That’s where `_meta.json` comes in. You can have an `_meta.json` file in each
-directory, and it will be used to override the default configuration of each
-page:
+这就是 _meta.json 的用途。您可以在每个目录中拥有一个 _meta.json 文件，它将用来覆盖每个页面的默认配置：
 
 <FileTree>
   <FileTree.Folder name="pages" defaultOpen>
@@ -77,7 +65,7 @@ page:
   </FileTree.Folder>
 </FileTree>
 
-And you can put this in your `pages/_meta.json` file:
+您可以在 `pages/_meta.json` 文件中这样设置：
 
 ```json filename="pages/_meta.json"
 {
@@ -87,8 +75,7 @@ And you can put this in your `pages/_meta.json` file:
 }
 ```
 
-It tells Nextra the order of each page, and the correct title. Alternatively,
-you can do it with `title` and have other configurations in there as well:
+它告诉 Nextra 每个页面的顺序和正确的标题。或者，您也可以使用 `title` 并在其中加入其他配置：
 
 ```json filename="pages/_meta.json"
 {
@@ -101,18 +88,17 @@ you can do it with `title` and have other configurations in there as well:
 }
 ```
 
-The extra configurations are passed to the **theme** as additional information.
-Check the corresponding pages for more information:
+额外的配置将作为附加信息传递给**主题**。更多信息请查看对应页面：
 
 <Cards>
   <Card
     icon={<NewsletterIcon />}
-    title="Docs Theme →"
+    title="文档主题 →"
     href="/docs/docs-theme/page-configuration"
   />
   <Card
     icon={<FileIcon />}
-    title="Blog Theme →"
+    title="博客主题 →"
     href="/docs/blog-theme/start"
   />
 </Cards>

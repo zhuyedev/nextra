@@ -3,58 +3,39 @@ import { Callout } from 'nextra/components'
 # useConfig
 
 <Callout type="warning">
-  **The `useConfig` hook is made to dynamically configure your project**. See
-  [Theme Configuration](/docs/docs-theme/theme-configuration) for more
-  information about each customizable feature.
+  **`useConfig` 钩子用于动态配置您的项目**。有关每个可自定义功能的更多信息，请参见[主题配置](/docs/docs-theme/theme-configuration)。
 </Callout>
 
-The `useConfig` hook returns data from your theme configuration and current page
-context.
+`useConfig` 钩子返回您的主题配置和当前页面上下文中的数据。
 
-## Return Values
+## 返回值
 
-- `banner`: data about [Banner](/docs/docs-theme/theme-configuration#banner)
-- `chat`: data about [Chat Link](/docs/docs-theme/theme-configuration#chat-link)
-- `darkMode`: a boolean whether the theme is dark or not
-- `direction`: a string that defines the current
-  [writing direction](/docs/docs-theme/theme-configuration#writing-direction)
-- `docsRepositoryBase`: a link string to the documentation repository
-- `editLink`: data about
-  [Edit Link](/docs/docs-theme/theme-configuration#edit-link)
-- `feedback`: data about
-  [Feedback Link](/docs/docs-theme/theme-configuration#feedback-link)
-- `footer`: data about [Footer](/docs/docs-theme/theme-configuration#footer)
-- `gitTimestamp`: a function that renders the
-  [Last Updated Date](/docs/docs-theme/theme-configuration#last-updated-date)
-- `head`: an equivalent to
-  [Next.js Head tag](https://nextjs.org/docs/pages/api-reference/components/head)
-- `i18n`: data about [Internationalization](/docs/guide/i18n)
-- `logo`: a React component for the website's logo
-- `logoLink`: a link for the `logo` component
-- `navbar`: components related to
-  [Navbar](/docs/docs-theme/theme-configuration#customize-the-navbar)
-- `navigation`: options about
-  [Navigation](/docs/docs-theme/theme-configuration#navigation)
-- `themeSwitch`: data about
-  [Theme Switch](/docs/docs-theme/theme-configuration#theme-switch)
-- `nextThemes`: data about theme configuration (see
-  [pacocoursey/next-themes](https://github.com/pacocoursey/next-themes))
-- `notFound`: data to display when the page is not found
-- `primaryHue`: data about
-  [Theme Color](/docs/docs-theme/theme-configuration#theme-color)
-- `primarySaturation`: data about
-  [Theme Color](/docs/docs-theme/theme-configuration#theme-color)
-- `project`: data about
-  [Project Link](/docs/docs-theme/theme-configuration#project-link)
-- `search`: data about [Search](/docs/docs-theme/theme-configuration#search)
-- `serverSideError`: data to display when a server-side error happens (requires
-  `500.mdx` page too)
-- `sidebar`: data about [Sidebar](/docs/docs-theme/theme-configuration#sidebar)
-- `toc`: data about
-  [Table of Contents Sidebar](/docs/docs-theme/theme-configuration#toc-sidebar)
-- `useNextSeoOptions`: a function that passes data to Next.js SEO component.
-  (see [SEO Options](/docs/docs-theme/theme-configuration#seo-options))
-- `flexsearch`: data about search configuration
-- `title`: Title about current document
-- `frontMatter`: parsed [front matter](https://jekyllrb.com/docs/front-matter)
-  data
+- `banner`：有关 [Banner](/docs/docs-theme/theme-configuration#banner) 的数据
+- `chat`：有关 [Chat Link](/docs/docs-theme/theme-configuration#chat-link) 的数据
+- `darkMode`：一个布尔值，表示主题是否为深色
+- `direction`：一个字符串，定义当前的[书写方向](/docs/docs-theme/theme-configuration#writing-direction)
+- `docsRepositoryBase`：指向文档仓库的链接字符串
+- `editLink`：有关 [Edit Link](/docs/docs-theme/theme-configuration#edit-link) 的数据
+- `feedback`：有关 [Feedback Link](/docs/docs-theme/theme-configuration#feedback-link) 的数据
+- `footer`：有关 [Footer](/docs/docs-theme/theme-configuration#footer) 的数据
+- `gitTimestamp`：渲染[最后更新时间](/docs/docs-theme/theme-configuration#last-updated-date) 的函数
+- `head`：等同于 [Next.js Head 标签](https://nextjs.org/docs/pages/api-reference/components/head)
+- `i18n`：有关[国际化](/docs/guide/i18n) 的数据
+- `logo`：网站 Logo 的 React 组件
+- `logoLink`：`logo` 组件的链接
+- `navbar`：有关[导航栏](/docs/docs-theme/theme-configuration#customize-the-navbar) 的组件
+- `navigation`：有关[导航](/docs/docs-theme/theme-configuration#navigation) 的选项
+- `themeSwitch`：有关[主题切换](/docs/docs-theme/theme-configuration#theme-switch) 的数据
+- `nextThemes`：有关主题配置的数据（参见 [pacocoursey/next-themes](https://github.com/pacocoursey/next-themes)）
+- `notFound`：当页面未找到时显示的数据
+- `primaryHue`：有关[主题颜色](/docs/docs-theme/theme-configuration#theme-color) 的数据
+- `primarySaturation`：有关[主题颜色](/docs/docs-theme/theme-configuration#theme-color) 的数据
+- `project`：有关[项目链接](/docs/docs-theme/theme-configuration#project-link) 的数据
+- `search`：有关[搜索](/docs/docs-theme/theme-configuration#search) 的数据
+- `serverSideError`：当发生服务器端错误时显示的数据（也需要 `500.mdx` 页面）
+- `sidebar`：有关[侧边栏](/docs/docs-theme/theme-configuration#sidebar) 的数据
+- `toc`：有关[目录侧边栏](/docs/docs-theme/theme-configuration#toc-sidebar) 的数据
+- `useNextSeoOptions`：一个将数据传递给 Next.js SEO 组件的函数。（参见 [SEO 选项](/docs/docs-theme/theme-configuration#seo-options)）
+- `flexsearch`：有关搜索配置的数据
+- `title`：当前文档的标题
+- `frontMatter`：解析的[前置数据](https://jekyllrb.com/docs/front-matter)

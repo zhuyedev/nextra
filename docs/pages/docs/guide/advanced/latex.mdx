@@ -1,7 +1,7 @@
 # LaTeX
 
-Nextra uses [KaTeX](https://katex.org/) to render LaTeX expressions directly in MDX.
-To enable LaTeX support, you must enable the `latex` option in your `next.config.js` file:
+Nextra 使用 [KaTeX](https://katex.org/) 直接在 MDX 中渲染 LaTeX 表达式。
+要启用 LaTeX 支持，您必须在 `next.config.js` 文件中启用 `latex` 选项：
 
 ```js filename="next.config.js"
 module.exports = require('nextra')({
@@ -9,32 +9,30 @@ module.exports = require('nextra')({
 })
 ```
 
-When enabled, KaTeX’s CSS and fonts will be automatically included in your site, and you can start writing math expressions in your MDX files. Using LaTeX within MDX is as simple as wrapping your expression in `$` or `$$`.
+启用后，KaTeX 的 CSS 和字体将自动包含在您的站点中，您可以在 MDX 文件中开始编写数学表达式。在 MDX 中使用 LaTeX 只需将表达式用 `$` 或 `$$` 包裹起来即可。
 
-## Example
+## 示例
 
-For example, the following Markdown code:
+例如，以下 Markdown 代码：
 
 ```md filename="page.mdx"
 The **Pythagorean equation**: $a=\sqrt{b^2 + c^2}$.
 ```
 
-will be rendered as:
+将被渲染为：
 
 <div className="mt-6 rounded-xl border border-gray-200 p-4 dark:border-gray-900">
   The **Pythagorean equation**: $a=\sqrt{b^2 + c^2}$.
 </div>
 
-You can still use [Markdown and MDX syntax](../markdown) in the same line as your LaTeX expression.
+您仍然可以在与 LaTeX 表达式相同的行中使用 [Markdown 和 MDX 语法](../markdown)。
 
 import { Callout } from 'nextra/components'
 
 <Callout>
-  If you want to display `$` in your content instead of rendering it as an
-  equation, you can escape it with a backslash (`\`). For example `\$e = mc^2\$`
-  will be rendered as \$e = mc^2\$.
+  如果您想在内容中显示 `$` 而不是将其渲染为公式，可以使用反斜杠（`\`）对其进行转义。例如 `\$e = mc^2\$` 将被渲染为 \$e = mc^2\$。
 </Callout>
 
 ## API
 
-To learn more about KaTeX and its supported functions and conventions, visit [KaTeX’s documentation](https://katex.org/docs/supported.html).
+要了解更多关于 KaTeX 及其支持的功能和约定，请访问 [KaTeX 的文档](https://katex.org/docs/supported.html).

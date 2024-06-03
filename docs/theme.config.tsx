@@ -104,11 +104,11 @@ const config: DocsThemeConfig = {
     )
   },
   editLink: {
-    text: 'Edit this page on GitHub →'
+    text: '在 GitHub 上编辑此页面 →'
   },
   feedback: {
-    content: 'Question? Give us feedback →',
-    labels: 'feedback'
+    content: '发现问题？反馈给我们 →',
+    labels: '反馈'
   },
   sidebar: {
     titleComponent({ title, type }) {
@@ -148,7 +148,8 @@ const config: DocsThemeConfig = {
     )
   },
   toc: {
-    backToTop: true
+    // backToTop: true,
+    title: "页面目录"
   },
   i18n: [
     { locale: 'zh-CN', text: '中文' },

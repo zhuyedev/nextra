@@ -1,12 +1,12 @@
 {
-  "organize-files": "",
-  "markdown": "",
-  "syntax-highlighting": "",
-  "link": "Next.js Link",
-  "image": "Next.js Image",
+  "organize-files": "组织文件结构",
+  "markdown": "Markdown",
+  "syntax-highlighting": "语法高亮",
+  "link": "Next.js Link 组件",
+  "image": "Next.js Image 组件",
   "ssg": "Next.js SSG",
-  "i18n": "Next.js I18n",
-  "custom-css": "",
-  "advanced": "",
-  "built-ins": "Built-ins"
+  "i18n": "Next.js 国际化 (I18n)",
+  "custom-css": "自定义 CSS",
+  "advanced": "高级功能",
+  "built-ins": "内置组件"
 }

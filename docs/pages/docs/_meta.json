@@ -1,23 +1,23 @@
 {
-  "index": "Introduction",
-  "guide": "",
+  "index": "简介",
+  "guide": "指南",
   "-- Themes": {
     "type": "separator",
-    "title": "Themes"
+    "title": "主题"
   },
-  "docs-theme": "",
-  "blog-theme": "",
-  "custom-theme": "",
+  "docs-theme": "文档主题",
+  "blog-theme": "博客主题",
+  "custom-theme": "自定义主题",
   "-- More": {
     "type": "separator",
-    "title": "More"
+    "title": "更多"
   },
   "about-link": {
-    "title": "About Nextra",
+    "title": "关于 Nextra",
     "href": "/about"
   },
   "next.js-link": {
-    "title": "Next.js Docs ↗",
+    "title": "Next.js 文档 ↗",
     "href": "https://nextjs.org?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar",
     "newWindow": true
   }
