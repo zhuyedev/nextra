@@ -8,7 +8,7 @@ WORKDIR /app
 RUN npm install -g pnpm@8.15.8
 
 # 复制 package.json 和 pnpm-lock.yaml（如果存在）
-COPY package*.json pnpm-lock.yaml* ./
+COPY package*.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
 
 # 安装项目依赖
 RUN pnpm install
