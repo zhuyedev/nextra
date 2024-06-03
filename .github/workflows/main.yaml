@@ -41,4 +41,4 @@ jobs:
                 docker stop docs-nextra
                 docker rm docs-nextra
             fi
-            docker run -d --restart=always --name docs-nextra --network=my-custom-network -p 8111:80 localhost:5000/docs-nextra:latest
+            docker run -d --restart=always --name docs-nextra --network=my-custom-network -p 8111:3000 localhost:5000/docs-nextra:latest
