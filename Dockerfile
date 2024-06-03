@@ -5,7 +5,7 @@ FROM node:18 AS build-stage
 WORKDIR /app
 
 # 安装 pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@8.15.8
 
 # 复制 package.json 和 pnpm-lock.yaml（如果存在）
 COPY package*.json pnpm-lock.yaml* ./
