@@ -27,10 +27,7 @@ FROM node:18 as production-stage
 WORKDIR /app
 
 # 复制构建输出和必要的文件
-COPY --from=build-stage /app/docs/.next/server /app/.next/server
-COPY --from=build-stage /app/docs/.next/static /app/.next/static
-COPY --from=build-stage /app/docs/node_modules /app/node_modules
-COPY --from=build-stage /app/docs/public /app/public
+COPY --from=build-stage /app/docs /app
 
 # 暴露 80 端口
 EXPOSE 3000
