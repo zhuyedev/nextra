@@ -144,6 +144,9 @@ const config: DocsThemeConfig = {
         <p className="mt-6 text-xs">
           © {new Date().getFullYear()} The Nextra Project.
         </p>
+        <p className="mt-6 text-xs">
+          本站点用于展示 Nextra 中文文档，由 <a href="https://github.com/zhuyedev">zhuyedev</a> 翻译，遵循原始文档的 MIT 许可证。原始文档版权归 <a href="https://github.com/shuding/nextra">Nextra</a> 项目所有。
+        </p>
       </div>
     )
   },
@@ -152,7 +155,7 @@ const config: DocsThemeConfig = {
     title: "页面目录"
   },
   i18n: [
-    { locale: 'zh-CN', text: '中文' },
+    {locale: 'zh-CN', text: '中文' },
   ]
 }
 
