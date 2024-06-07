@@ -33,4 +33,4 @@ COPY --from=build-stage /app/docs /app
 EXPOSE 3000
 
 # 启动 Next.js 服务器
-CMD ["node", "/app/.next/server/pages/_app.js"]
+CMD ["npm", "run", "start"]
