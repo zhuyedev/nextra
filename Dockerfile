@@ -22,12 +22,14 @@ RUN pnpm run build
 # 第二阶段：运行 Next.js 服务器
 FROM node:18 as production-stage
 
-
 # 设置工作目录
 WORKDIR /app
 
 # 复制构建输出和必要的文件
-COPY --from=build-stage /app/docs /app
+COPY --from=build-stage /app /app
+
+# 设置工作目录
+WORKDIR /app/docs
 
 # 暴露 80 端口
 EXPOSE 3000
