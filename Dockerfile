@@ -1,5 +1,5 @@
 # 第一阶段：构建 Next.js 站点
-FROM node:18 AS build-stage
+FROM node:18
 
 # 设置工作目录
 WORKDIR /app
@@ -19,20 +19,8 @@ WORKDIR /app/docs
 # 构建 Next.js 站点，假设构建命令已正确设置在项目的 package.json 中
 RUN pnpm run build
 
-# 第二阶段：运行 Next.js 服务器
-FROM node:18 as production-stage
-
-# 设置工作目录
-WORKDIR /app
-
-# 复制构建输出和必要的文件
-COPY --from=build-stage /app /app
-
-# 设置工作目录
-WORKDIR /app/docs
-
-# 暴露 80 端口
+# 暴露 3000 端口
 EXPOSE 3000
 
 # 启动 Next.js 服务器
-CMD ["npm", "run", "start"]
+CMD ["pnpm", "run", "start"]
