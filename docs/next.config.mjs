@@ -12,7 +12,6 @@ const withNextra = nextra({
 
 export default withNextra({
   reactStrictMode: true,
-  basePath: '/nextra',
   eslint: {
     // ESLint behaves weirdly in this monorepo.
     ignoreDuringBuilds: true
