@@ -154,9 +154,9 @@ const config: DocsThemeConfig = {
     // backToTop: true,
     title: "页面目录"
   },
-  i18n: [
-    {locale: 'zh-CN', text: '中文' },
-  ]
+  // i18n: [
+  //   {locale: 'zh-CN', text: '中文' },
+  // ]
 }
 
 export default config
